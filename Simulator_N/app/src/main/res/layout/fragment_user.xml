@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@color/navigation_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_baseline_equalizer_24"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_userinfo"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+<ImageView
+    android:id="@+id/touxiang"
+    android:layout_marginLeft="15dp"
+    android:src="@mipmap/head_default"
+    android:layout_width="50dp"
+    android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="未登录"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/touxiang"
+            android:layout_centerVertical="true"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/next"
+            android:layout_width="11dp"
+            android:layout_height="13dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zhichi"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/touxiang1"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/head_default"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="支持作者"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/touxiang1"
+            android:layout_centerVertical="true"
+            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/next"
+            android:layout_width="11dp"
+            android:layout_height="13dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/leixing"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/touxiang2"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/head_default"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dp"
+            android:layout_toRightOf="@+id/touxiang2"
+            android:text="切换类型"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dp"
+            android:text="键盘鼠标遥控器"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/fanhui"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/next"
+            android:layout_width="11dp"
+            android:layout_height="13dp"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 
 import com.android.superli.btremote.R;
+import com.android.superli.btremote.bean.KeyBean;
+import com.android.superli.btremote.hid.KeyConfigs;
 import com.android.superli.btremote.ui.activity.tool.DiyActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SelectActivity extends AppCompatActivity {
 
@@ -23,7 +27,7 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
 
         GridLayout selectLayout = findViewById(R.id.SelectLayout);
-        selectLayout.setRowCount(21);
+        //selectLayout.setRowCount(21);
         selectLayout.setColumnCount(4);
 
         Boolean isEmpty = true;
@@ -49,42 +53,18 @@ public class SelectActivity extends AppCompatActivity {
             }
         }
 
-        String[] allButton = {
-                "Esc","F1", "F2", "F3",
-                "F4", "F5", "F6", "F7",
-                "F8", "F9", "F10", "F11",
-                "F12","Del", "!\n1", "@\n2",
-                "#\n3", "$\n4", "%\n5", "^\n6",
-                "&\n7", "*\n8", "(\n9", ")\n0",
-                "_\n-", "+\n=", "Backspace", "Tab",
-                "Q", "W", "E", "R",
-                "T", "Y", "U", "I",
-                "O", "P", "{\n[", "{\n]",
-                "|\n\\", "Caps", "A", "S",
-                "D", "F", "G", "H",
-                "J", "K", "L", ":\n;",
-                "\"\n'", "Enter", "Shift", "Z",
-                "X", "C", "V", "B",
-                "N", "M", "<\n,",">\n.",
-                "?\n/", "Shift", "Ctrl", "Fn",
-                "Win", "Alt", "Space", "Alt",
-                "Ctrl","mLeft","mMiddle","mRight",
-                "scrollBar","TouchPad","voiceUp","voiceDown",
-                "lightUp","lightDown"
-        };
+        List<KeyBean> beans = KeyConfigs.getKeys();
 
-        for(String value:allButton){
+        for(KeyBean bean:beans){
             Button button = new Button(this);
-            button.setText(value);//设置按钮文本
+            Button vName = findViewById(bean.vid);
+            button.setText(vName.getText());//设置按钮文本
             button.setPadding(10, 0, 10, 0);//内边距
             button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);//字体大小
             button.setMinimumWidth(0);//设置按钮最小默认大小
             button.setMinimumHeight(0);//设置按钮最小默认大小
-            if(value.contains("\n")){
-                button.setTranslationY(-24f);
-            }//调整多行文本对齐方式
             button.setOnClickListener(v -> {
-                dataList.add(value);
+                dataList.add(String.valueOf(bean.vid));
                 xList.add(0f);
                 yList.add(0f);
                 addIntent.putStringArrayListExtra("dataList",dataList);

@@ -10,7 +10,7 @@ import com.android.base.router.Router;
 import com.android.base.ui.XFragment;
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.ui.activity.AboutUsActivity;
-import com.android.superli.btremote.ui.activity.PrivacyPolicyActivity;
+import com.android.superli.btremote.ui.activity.OurTeamActivity;
 import com.android.superli.btremote.ui.views.SwitchButton;
 import com.android.base.SharedPreferencesUtil;
 
@@ -121,7 +121,7 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
                 pvNoLinkOptions.show();
                 break;
             case R.id.tv_privacy_policy:
-                Router.newIntent(getActivity()).to(PrivacyPolicyActivity.class).launch();
+                Router.newIntent(getActivity()).to(OurTeamActivity.class).launch();
                 break;
             case R.id.tv_website:
                 Intent intent = new Intent();

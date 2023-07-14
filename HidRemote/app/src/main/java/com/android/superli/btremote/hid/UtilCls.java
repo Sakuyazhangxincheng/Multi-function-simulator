@@ -6,9 +6,6 @@ import java.util.TimerTask;
 public class UtilCls {
     /**
      * 延时执行任务
-     * @param runnable
-     * @param delay
-     * @param runonce
      */
     public static TimerTask DelayTask(final Runnable runnable, int delay, final boolean runonce){
         Timer timer = new Timer();

@@ -42,7 +42,8 @@ public class HidConsts {
     public final static byte[] C_Descriptor = {
             (byte)0x05, (byte)0x01, // Usage Page (Generic Desktop Ctrls)
             (byte)0x09, (byte)0x05, // Usage (Game Pad)
-            (byte)0xA1, (byte)0x01, // Collection (Application)
+            (byte)0xa1, (byte)0x01, // Collection (Application)
+            (byte)0xa1, (byte)0x00, // Collection (Physical)
             (byte)0x85, (byte)0x04, // Report ID (4)
             (byte)0x05, (byte)0x09, // Usage Page (Button)
             (byte)0x19, (byte)0x01, // Usage Minimum (Button 1)
@@ -54,7 +55,7 @@ public class HidConsts {
             (byte)0x81, (byte)0x02, // Input (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
             (byte)0x05, (byte)0x01, // Usage Page (Generic Desktop Ctrls)
             (byte)0x15, (byte)0x81, // Logical Minimum (-127)
-            (byte)0x25, (byte)0x7F, // Logical Maximum (127)
+            (byte)0x25, (byte)0x7f, // Logical Maximum (127)
             (byte)0x09, (byte)0x30, // Usage (X)
             (byte)0x09, (byte)0x31, // Usage (Y)
             (byte)0x09, (byte)0x32, // Usage (Z)
@@ -62,7 +63,69 @@ public class HidConsts {
             (byte)0x75, (byte)0x08, // Report Size (8)
             (byte)0x95, (byte)0x04, // Report Count (4)
             (byte)0x81, (byte)0x02, // Input (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
-            (byte)0xC0, // End Col
+            (byte)0xc0, // End Col
+            (byte)0xc0, // End Col
+    };
+
+    public final static byte[] C_Descriptor_Xbox = {
+            (byte)0x05, (byte)0x01,                     //0       GLOBAL_USAGE_PAGE(Generic Desktop Controls)
+            (byte)0x09, (byte)0x05,                     //2       LOCAL_USAGE(Game Pad)
+            (byte)0xA1, (byte)0x01,                     //4       MAIN_COLLECTION(Applicatior)
+            (byte)0xA1, (byte)0x00,                     //6       MAIN_COLLECTION(Physical)
+            (byte)0x09, (byte)0x30,                     //8       LOCAL_USAGE(X)
+            (byte)0x09, (byte)0x31,                     //10      LOCAL_USAGE(Y)
+            (byte)0x15, (byte)0x00,                     //12      GLOBAL_LOGICAL_MINIMUM(0)
+            (byte)0x26, (byte)0xFF, (byte)0xFF,         //14      GLOBAL_LOCAL_MAXIMUM(-1)
+            (byte)0x35, (byte)0x00,                     //17      GLOBAL_PHYSICAL_MINIMUM(0)
+            (byte)0x46, (byte)0xFF, (byte)0xFF,         //19      GLOBAL_PHYSICAL_MAXIMUM(65535)
+            (byte)0x95, (byte)0x02,                     //22      GLOBAL_REPORT_COUNT(2)
+            (byte)0x75, (byte)0x10,                     //24      GLOBAL_REPORT_SIZE(16)
+            (byte)0x81, (byte)0x02,                     //26      MAIN_INPUT(data var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0xC0,                                 //28      MAIN_COLLECTION_END
+            (byte)0xA1, (byte)0x00,                     //29      MAIN_COLLECTION(Physical)
+            (byte)0x09, (byte)0x33,                     //31      LOCAL_USAGE(Rx)
+            (byte)0x09, (byte)0x34,                     //33      LOCAL_USAGE(Ry)
+            (byte)0x15, (byte)0x00,                     //35      GLOBAL_LOGICAL_MINIMUM(0)
+            (byte)0x26, (byte)0xFF, (byte)0xFF,         //37      GLOBAL_LOCAL_MAXIMUM(-1)
+            (byte)0x35, (byte)0x00,                     //40      GLOBAL_PHYSICAL_MINIMUM(0)
+            (byte)0x46, (byte)0xFF, (byte)0xFF,         //42      GLOBAL_PHYSICAL_MAXIMUM(65535)
+            (byte)0x95, (byte)0x02,                     //45      GLOBAL_REPORT_COUNT(2)
+            (byte)0x75, (byte)0x10,                     //47      GLOBAL_REPORT_SIZE(16)
+            (byte)0x81, (byte)0x02,                     //49      MAIN_INPUT(data var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0xC0,                                 //51      MAIN_COLLECTION_END
+            (byte)0xA1, (byte)0x00,                     //52      MAIN_COLLECTION(Physical)
+            (byte)0x09, (byte)0x32,                     //54      LOCAL_USAGE(Z)
+            (byte)0x15, (byte)0x00,                     //56      GLOBAL_LOGICAL_MINIMUM(0)
+            (byte)0x26, (byte)0xFF, (byte)0xFF,         //58      GLOBAL_LOCAL_MAXIMUM(-1)
+            (byte)0x35, (byte)0x00,                     //61      GLOBAL_PHYSICAL_MINIMUM(0)
+            (byte)0x46, (byte)0xFF, (byte)0xFF,         //63      GLOBAL_PHYSICAL_MAXIMUM(65535)
+            (byte)0x95, (byte)0x01,                     //66      GLOBAL_REPORT_COUNT(1)
+            (byte)0x75, (byte)0x10,                     //68      GLOBAL_REPORT_SIZE(16)
+            (byte)0x81, (byte)0x02,                     //70      MAIN_INPUT(data var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0xC0,                                 //72      MAIN_COLLECTION_END
+            (byte)0x05, (byte)0x09,                     //73      GLOBAL_USAGE_PAGE(Button)
+            (byte)0x19, (byte)0x01,                     //75      LOCAL_USAGE_MINIMUM(1)
+            (byte)0x29, (byte)0x0A,                     //77      LOCAL_USAGE_MAXIMUM(10)
+            (byte)0x95, (byte)0x0A,                     //79      GLOBAL_REPORT_COUNT(10)
+            (byte)0x75, (byte)0x01,                     //81      GLOBAL_REPORT_SIZE(1)
+            (byte)0x81, (byte)0x02,                     //83      MAIN_INPUT(data var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0x05, (byte)0x01,                     //85      GLOBAL_USAGE_PAGE(Generic Desktop Controls)
+            (byte)0x09, (byte)0x39,                     //87      LOCAL_USAGE(Hat switch)
+            (byte)0x15, (byte)0x01,                     //89      GLOBAL_LOGICAL_MINIMUM(1)
+            (byte)0x25, (byte)0x08,                     //91      GLOBAL_LOCAL_MAXIMUM(8)
+            (byte)0x35, (byte)0x00,                     //93      GLOBAL_PHYSICAL_MINIMUM(0)
+            (byte)0x46, (byte)0x3B, (byte)0x10,         //95      GLOBAL_PHYSICAL_MAXIMUM(4155)
+            (byte)0x66, (byte)0x0E, (byte)0x00,         //98      GLOBAL_REPORT_UNIT(14)
+            (byte)0x75, (byte)0x04,                     //101     GLOBAL_REPORT_SIZE(4)
+            (byte)0x95, (byte)0x01,                     //103     GLOBAL_REPORT_COUNT(1)
+            (byte)0x81, (byte)0x42,                     //105     MAIN_INPUT(data var absolute NoWrap linear PreferredState NullState NonVolatile )
+            (byte)0x75, (byte)0x02,                     //107     GLOBAL_REPORT_SIZE(2)
+            (byte)0x95, (byte)0x01,                     //109     GLOBAL_REPORT_COUNT(1)
+            (byte)0x81, (byte)0x03,                     //111     MAIN_INPUT(const var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0x75, (byte)0x08,                     //113     GLOBAL_REPORT_SIZE(8)
+            (byte)0x95, (byte)0x02,                     //115     GLOBAL_REPORT_COUNT(2)
+            (byte)0x81, (byte)0x03,                     //117     MAIN_INPUT(const var absolute NoWrap linear PreferredState NoNullPosition NonVolatile )
+            (byte)0xC0,                                 //119     MAIN_COLLECTION_END
     };
 
     private static Handler handler;
@@ -135,35 +198,35 @@ public class HidConsts {
     //1:btn1-8(XY AB)   2:btn2-16   3:X方向   4:Y方向    5:Z方向    6:Rz方向
 
     public static void XBtnDown(){
-        HidConsts.ControllerReport.ReportData[0] |= 1;
-        SendControllerReport(HidConsts.ControllerReport.ReportData);
-    }
-    public static void XBtnUp(){
-        HidConsts.ControllerReport.ReportData[0] &= (~1);
-        SendControllerReport(HidConsts.ControllerReport.ReportData);
-    }
-    public static void YBtnDown(){
-        HidConsts.ControllerReport.ReportData[0] |= 2;
-        SendControllerReport(HidConsts.ControllerReport.ReportData);
-    }
-    public static void YBtnUp(){
-        HidConsts.ControllerReport.ReportData[0] &= (~2);
-        SendControllerReport(HidConsts.ControllerReport.ReportData);
-    }
-    public static void ABtnDown(){
         HidConsts.ControllerReport.ReportData[0] |= 4;
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
-    public static void ABtnUp(){
+    public static void XBtnUp(){
         HidConsts.ControllerReport.ReportData[0] &= (~4);
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
-    public static void BBtnDown(){
+    public static void YBtnDown(){
         HidConsts.ControllerReport.ReportData[0] |= 8;
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
-    public static void BBtnUp(){
+    public static void YBtnUp(){
         HidConsts.ControllerReport.ReportData[0] &= (~8);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 1;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~1);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 2;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~2);
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
     public static void RSInfo(double X, double Y, double Z, double Rz ,
@@ -178,22 +241,22 @@ public class HidConsts {
         if(Z != 0) Z = Z / T * 127;
         if(Rz != 0) Rz = Rz / T * 127;
         if(X_flag){
-            ControllerReport.ReportData[0] |= 1;
+            ControllerReport.ReportData[0] |= 4;
         }else {
             ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~1));
         }
         if(Y_flag){
-            ControllerReport.ReportData[0] |= 2;
+            ControllerReport.ReportData[0] |= 8;
         }else {
             ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~2));
         }
         if(A_flag){
-            ControllerReport.ReportData[0] |= 4;
+            ControllerReport.ReportData[0] |= 1;
         }else {
             ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~4));
         }
         if(B_flag){
-            ControllerReport.ReportData[0] |= 8;
+            ControllerReport.ReportData[0] |= 2;
         }else {
             ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~8));
         }

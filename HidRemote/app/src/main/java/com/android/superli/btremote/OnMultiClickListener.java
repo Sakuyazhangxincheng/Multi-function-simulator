@@ -2,16 +2,6 @@ package com.android.superli.btremote;
 
 import android.view.View;
 
-/**
- * @ClassName: OnMultiClickListener
- * @Description: java类作用描述
- * @Author: taohaili
- * @CreateDate: 2020/5/25 15:36
- * @UpdateUser: 更新者：
- * @UpdateDate: 2020/5/25 15:36
- * @UpdateRemark: 更新说明：
- * @Version: 1.0
- */
 public abstract class OnMultiClickListener implements View.OnClickListener {
     // 两次点击按钮之间的点击间隔不能少于1000毫秒
     private static final int MIN_CLICK_DELAY_TIME = 1000;

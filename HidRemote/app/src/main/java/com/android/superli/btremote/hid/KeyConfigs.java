@@ -6,16 +6,6 @@ import com.android.superli.btremote.bean.KeyBean;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @ClassName: KeyConfigs
- * @Description: java类作用描述
- * @Author: taohaili
- * @CreateDate: 2021/5/5 9:38
- * @UpdateUser: 更新者：
- * @UpdateDate: 2021/5/5 9:38
- * @UpdateRemark: 更新说明：
- * @Version: 1.0
- */
 public class KeyConfigs {
 
     public static List<KeyBean> getKeys() {

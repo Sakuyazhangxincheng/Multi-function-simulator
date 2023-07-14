@@ -104,7 +104,7 @@ public class RockerView extends View {
         initAttribute(context, attrs);
 
         if (isInEditMode()) {
-            Log.i(TAG, "RockerView: isInEditMode");
+//            //Log.i(TAG, "RockerView: isInEditMode");
         }
 
         // 移动区域画笔
@@ -191,7 +191,7 @@ public class RockerView extends View {
         // 摇杆半径
         mRockerRadius = typedArray.getDimensionPixelOffset(R.styleable.RockerView2_rockerRadius, DEFAULT_ROCKER_RADIUS);
 
-        Log.i(TAG, "initAttribute: mAreaBackground = " + areaBackground + "   mRockerBackground = " + rockerBackground + "  mRockerRadius = " + mRockerRadius);
+        //Log.i(TAG, "initAttribute: mAreaBackground = " + areaBackground + "   mRockerBackground = " + rockerBackground + "  mRockerRadius = " + mRockerRadius);
         typedArray.recycle();
     }
 
@@ -216,11 +216,11 @@ public class RockerView extends View {
         } else {
             measureHeight = DEFAULT_SIZE;
         }
-//        Log.i(TAG, "onMeasure: --------------------------------------");
-//        Log.i(TAG, "onMeasure: widthMeasureSpec = " + widthMeasureSpec + " heightMeasureSpec = " + heightMeasureSpec);
-//        Log.i(TAG, "onMeasure: widthMode = " + widthMode + "  measureWidth = " + widthSize);
-//        Log.i(TAG, "onMeasure: heightMode = " + heightMode + "  measureHeight = " + widthSize);
-//        Log.i(TAG, "onMeasure: measureWidth = " + measureWidth + " measureHeight = " + measureHeight);
+//        //Log.i(TAG, "onMeasure: --------------------------------------");
+//        //Log.i(TAG, "onMeasure: widthMeasureSpec = " + widthMeasureSpec + " heightMeasureSpec = " + heightMeasureSpec);
+//        //Log.i(TAG, "onMeasure: widthMode = " + widthMode + "  measureWidth = " + widthSize);
+//        //Log.i(TAG, "onMeasure: heightMode = " + heightMode + "  measureHeight = " + widthSize);
+//        //Log.i(TAG, "onMeasure: measureWidth = " + measureWidth + " measureHeight = " + measureHeight);
         setMeasuredDimension(measureWidth, measureHeight);
     }
 
@@ -232,13 +232,13 @@ public class RockerView extends View {
         int measuredHeight = getMeasuredHeight();
         int cx = measuredWidth / 2;
         int cy = measuredHeight / 2;
-        Log.i(TAG, "onDraw: cx=" + cx);
-        Log.i(TAG, "onDraw: cy=" + cy);
+        //Log.i(TAG, "onDraw: cx=" + cx);
+        //Log.i(TAG, "onDraw: cy=" + cy);
         // 中心点
         mCenterPoint.set(cx, cy);
         // 可移动区域的半径
         mAreaRadius = (measuredWidth <= measuredHeight) ? cx : cy;
-        Log.i(TAG, "onDraw:mAreaRadius= " + mAreaRadius);
+        //Log.i(TAG, "onDraw:mAreaRadius= " + mAreaRadius);
         // 摇杆位置
         if (0 == mRockerPosition.x || 0 == mRockerPosition.y) {
             mRockerPosition.set(mCenterPoint.x, mCenterPoint.y);
@@ -292,13 +292,13 @@ public class RockerView extends View {
                 callBackStart();
                 moveX = event.getX();
                 moveY = event.getY();
-                Log.i(TAG, "onTouchEvent: ACTION_DOWN moveX=" + moveX);
-                Log.i(TAG, "onTouchEvent: ACTION_DOWN moveY=" + moveY);
+                //Log.i(TAG, "onTouchEvent: ACTION_DOWN moveX=" + moveX);
+                //Log.i(TAG, "onTouchEvent: ACTION_DOWN moveY=" + moveY);
             case MotionEvent.ACTION_MOVE:// 移动
                 moveX = event.getX();
                 moveY = event.getY();
-                Log.i(TAG, "onTouchEvent:ACTION_MOVE moveX=" + moveX);
-                Log.i(TAG, "onTouchEvent: ACTION_MOVE moveY=" + moveY);
+                //Log.i(TAG, "onTouchEvent:ACTION_MOVE moveX=" + moveX);
+                //Log.i(TAG, "onTouchEvent: ACTION_MOVE moveY=" + moveY);
 
                 if ((moveX - cx) > (mAreaRadius / 3) || (cx - moveX) > (mAreaRadius / 3) || (moveY - cy) > (mAreaRadius / 3) || (cy - moveY) > (mAreaRadius / 3))
                 {
@@ -317,7 +317,7 @@ public class RockerView extends View {
                 //回到中间位置
                 moveRocker(mCenterPoint.x, mCenterPoint.y);
                 mOnAngleChangeListener.angle(0,0,0);
-//                Log.i(TAG, "onTouchEvent: ACTION_UP : x = " + upX + " y = " + upY);
+//                //Log.i(TAG, "onTouchEvent: ACTION_UP : x = " + upX + " y = " + upY);
                 break;
             case MotionEvent.ACTION_CANCEL:// 移出区域
                 // 回调 结束
@@ -325,7 +325,7 @@ public class RockerView extends View {
 //                moveX = event.getX();
 //                moveY = event.getY();
 //                moveRocker(mCenterPoint.x, mCenterPoint.y);
-//                Log.i(TAG, "onTouchEvent: ACTION_CANCEL : x = " + upX + " y = " + upY);
+//                //Log.i(TAG, "onTouchEvent: ACTION_CANCEL : x = " + upX + " y = " + upY);
                 break;
             default:
                 break;
@@ -357,7 +357,7 @@ public class RockerView extends View {
         // 回调 返回参数
         callBack(angle);
 
-        Log.i(TAG, "getRockerPositionPoint: 角度 :" + angle);
+        //Log.i(TAG, "getRockerPositionPoint: 角度 :" + angle);
         if (lenXY + rockerRadius <= regionRadius) { // 触摸位置在可活动范围内
             return touchPoint;
         } else { // 触摸位置在可活动范围以外
@@ -376,7 +376,7 @@ public class RockerView extends View {
      */
     public void moveRocker(float x, float y) {
         mRockerPosition.set((int) x, (int) y);
-        Log.i(TAG, "onTouchEvent: 移动位置 : x = " + mRockerPosition.x + " y = " + mRockerPosition.y);
+        //Log.i(TAG, "onTouchEvent: 移动位置 : x = " + mRockerPosition.x + " y = " + mRockerPosition.y);
         invalidate();
     }
 
@@ -491,14 +491,14 @@ public class RockerView extends View {
                     case DIRECTION_8:// 八个方向
                         cx = mCenterPoint.x;
                         cy = mCenterPoint.y;
-                        Log.i(TAG, "callBack: cx= " + cx + ",cy=" + cy);
+                        //Log.i(TAG, "callBack: cx= " + cx + ",cy=" + cy);
                         //以中心点坐标为基准，比较移动后的两点坐标，如果八个方向的到中心点距离大于半径的一半就可以操作圆盘
 //                        if (moveX - moveY > 100 || moveY - moveX > 100 || upX - upY > 100 || upY - upX > 100)
                         if ((moveX - cx) > (mAreaRadius / 2) || (cx - moveX) > (mAreaRadius / 2) || (moveY - cy) > (mAreaRadius / 2) || (cy - moveY) > (mAreaRadius / 2))
 
                         {
-                            Log.i(TAG, "callBack: move....cx= " + cx + ",cy=" + cy);
-                            Log.i(TAG, "callBack: move....moveX=" + moveX);
+                            //Log.i(TAG, "callBack: move....cx= " + cx + ",cy=" + cy);
+                            //Log.i(TAG, "callBack: move....moveX=" + moveX);
                             if (ANGLE_0 <= angle && ANGLE_8D_OF_0P > angle || ANGLE_8D_OF_7P <= angle && ANGLE_360 > angle) {
                                 // 右
                                 mOnShakeListener.direction(Direction.DIRECTION_RIGHT);
@@ -595,12 +595,12 @@ public class RockerView extends View {
                     case DIRECTION_8:// 八个方向
                         cx = mCenterPoint.x;
                         cy = mCenterPoint.y;
-                        Log.i(TAG, "callBack: cx= " + cx + ",cy=" + cy);
+                        //Log.i(TAG, "callBack: cx= " + cx + ",cy=" + cy);
                         //以中心点坐标为基准，比较移动后的两点坐标，如果八个方向的到中心点距离大于半径的一半就可以操作圆盘
                         if ((moveX - cx) > (mAreaRadius / 2) || (cx - moveX) > (mAreaRadius / 2) || (moveY - cy) > (mAreaRadius / 2) || (cy - moveY) > (mAreaRadius / 2))
                         {
-                            Log.i(TAG, "callBack: move....cx= " + cx + ",cy=" + cy);
-                            Log.i(TAG, "callBack: move....moveX=" + moveX);
+                            //Log.i(TAG, "callBack: move....cx= " + cx + ",cy=" + cy);
+                            //Log.i(TAG, "callBack: move....moveX=" + moveX);
                             if ((ANGLE_0 <= angle && ANGLE_8D_OF_0P > angle || ANGLE_8D_OF_7P <= angle && ANGLE_360 > angle) && tempDirection != Direction.DIRECTION_RIGHT) {
                                 // 右
                                 tempDirection = Direction.DIRECTION_RIGHT;

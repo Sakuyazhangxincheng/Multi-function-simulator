@@ -166,7 +166,9 @@ public class HidConsts {
         HidConsts.ControllerReport.ReportData[0] &= (~8);
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
-    public static void RSInfo(double X, double Y, double Z, double Rz){
+    public static void RSInfo(double X, double Y, double Z, double Rz ,
+                              final boolean X_flag, final boolean Y_flag,
+                              final boolean A_flag, final boolean B_flag){
         double T = 230.0;
         if(ControllerReport.SendState.equals(HidReport.State.Sending)){
             return;
@@ -175,6 +177,26 @@ public class HidConsts {
         if(Y != 0) Y = Y / T * 127;
         if(Z != 0) Z = Z / T * 127;
         if(Rz != 0) Rz = Rz / T * 127;
+        if(X_flag){
+            ControllerReport.ReportData[0] |= 1;
+        }else {
+            ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~1));
+        }
+        if(Y_flag){
+            ControllerReport.ReportData[0] |= 2;
+        }else {
+            ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~2));
+        }
+        if(A_flag){
+            ControllerReport.ReportData[0] |= 4;
+        }else {
+            ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~4));
+        }
+        if(B_flag){
+            ControllerReport.ReportData[0] |= 8;
+        }else {
+            ControllerReport.ReportData[0] = (byte) (ControllerReport.ReportData[0] & (~8));
+        }
         ControllerReport.ReportData[2] = (byte)X;
         ControllerReport.ReportData[3] = (byte)Y;
         ControllerReport.ReportData[4] = (byte)Z;

@@ -54,7 +54,7 @@
             android:value="640" />
 
         <activity
-            android:name="com.android.superli.btremote.ui.activity.MainActivity"
+            android:name="com.android.superli.btremote.SplashActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:theme="@style/SplashAppTheme">
@@ -72,12 +72,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
-<!--        <activity-->
-<!--            android:name="com.android.superli.btremote.ui.activity.MainActivity"-->
-<!--            android:configChanges="orientation|keyboardHidden|screenSize"-->
-<!--            android:launchMode="singleTask"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:theme="@style/AppTheme" />-->
+        <activity
+            android:name="com.android.superli.btremote.ui.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name="com.android.superli.btremote.ui.activity.SwitchLanguageActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

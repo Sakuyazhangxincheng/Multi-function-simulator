@@ -58,11 +58,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="50dp"
                 android:layout_height="50dp">
+
                 <ImageView
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/ic_san"
+                    android:id="@+id/btn_Y"
                     android:layout_width="25dp"
-                    android:layout_height="25dp"/>
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_san" />
             </RelativeLayout>
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -75,11 +77,13 @@
                     android:layout_gravity="center_vertical"
                     android:layout_width="50dp"
                     android:layout_height="50dp">
+
                     <ImageView
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/ic_zheng"
+                        android:id="@+id/btn_X"
                         android:layout_width="25dp"
-                        android:layout_height="25dp"/>
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_zheng" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_marginLeft="50dp"
@@ -88,11 +92,13 @@
                     android:layout_gravity="center_vertical"
                     android:layout_width="50dp"
                     android:layout_height="50dp">
+
                     <ImageView
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/ic_yuan"
+                        android:id="@+id/btn_B"
                         android:layout_width="25dp"
-                        android:layout_height="25dp"/>
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_yuan" />
                 </RelativeLayout>
             </LinearLayout>
             <RelativeLayout
@@ -102,11 +108,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="50dp"
                 android:layout_height="50dp">
+
                 <ImageView
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/ic_close"
+                    android:id="@+id/btn_A"
                     android:layout_width="25dp"
-                    android:layout_height="25dp"/>
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_close" />
             </RelativeLayout>
         </LinearLayout>
 

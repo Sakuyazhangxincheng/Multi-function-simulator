@@ -144,7 +144,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/item_padding"
                     android:paddingRight="@dimen/item_padding"
-                    android:text="1312398581@qq.com"
+                    android:text="20271055@bjtu.edu.cn"
                     android:textColor="@color/subtitle"
                     android:textSize="@dimen/t_text_size" />
             </LinearLayout>

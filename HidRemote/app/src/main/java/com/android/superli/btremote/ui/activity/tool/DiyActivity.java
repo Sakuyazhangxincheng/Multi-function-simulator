@@ -75,9 +75,9 @@ public class DiyActivity extends AppCompatActivity {
                     button.setMinimumHeight(0);//设置按钮最小默认大小
                     button.setX(newXArray[flag]);
                     button.setY(newYArray[flag]);
-                    if(value.contains("\n")){
+                    /*if(value.contains("\n")){
                         button.setTranslationY(-24f);
-                    }//调整多行文本对齐方式
+                    }*///调整多行文本对齐方式
 
                     button.setOnClickListener(v -> {
                         System.out.println(((Button) v).getText().toString());

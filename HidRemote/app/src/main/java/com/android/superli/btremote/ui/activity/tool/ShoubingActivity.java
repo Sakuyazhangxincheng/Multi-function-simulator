@@ -45,14 +45,21 @@ public class ShoubingActivity extends AppCompatActivity {
                 //计算斜边，由于是直角三角形，可知：勾股数组程a² + b² = c²
                 //angle 移动角度 0~90 第一象限  90～180 第二象限 180～270 第三象限 270～360 第四象限
 
-                //如果在原点
-                if (angle == 0) {
-                    //tv_area.setText(String.valueOf(0));
-                }
+                double X1 = x-230;
+                double Y1 = y-230;
+                if(X1 > 230) X1 = 230;
+                else if (X1 < -230) X1 = -230;
+                if(Y1 > 230) Y1 = 230;
+                else if (Y1 < -230) Y1 = -230;
 
-                double c = Math.sqrt(x * x + y * y);
+                //如果在原点
+//                if (angle == 0) {
+//                    tv_area.setText(String.valueOf(0));
+//                }
+
+                //double c = Math.sqrt(x * x + y * y);
                 //tv_area.setText(String.valueOf(c));
-                tv_area.setText(String.valueOf(x) + "   " + String.valueOf(y));
+                //tv_area.setText(String.valueOf(X1) + "   " + String.valueOf(Y1));
             }
 
 

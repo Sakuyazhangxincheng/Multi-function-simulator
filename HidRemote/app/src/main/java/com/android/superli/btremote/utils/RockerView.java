@@ -321,7 +321,7 @@ public class RockerView extends View {
                 break;
             case MotionEvent.ACTION_CANCEL:// 移出区域
                 // 回调 结束
-                callBackFinish();
+                //callBackFinish();
 //                moveX = event.getX();
 //                moveY = event.getY();
 //                moveRocker(mCenterPoint.x, mCenterPoint.y);

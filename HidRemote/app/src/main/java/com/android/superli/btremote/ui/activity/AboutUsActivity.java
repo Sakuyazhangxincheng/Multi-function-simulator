@@ -22,7 +22,7 @@ public class AboutUsActivity extends XActivity implements View.OnClickListener {
 
     @Override
     public int getActivityTitle() {
-        return R.string.about_us;
+        return R.string.support_us;
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.android.superli.btremote.R;
 import com.android.base.SharedPreferencesUtil;
 import com.gyf.immersionbar.ImmersionBar;
 
-public class PrivacyPolicyActivity extends XActivity implements View.OnClickListener {
+public class OurTeamActivity extends XActivity implements View.OnClickListener {
 
     private TextView tv_msg;
 
@@ -18,9 +18,7 @@ public class PrivacyPolicyActivity extends XActivity implements View.OnClickList
     }
 
     @Override
-    public int getActivityTitle() {
-        return R.string.privacy_policy;
-    }
+    public int getActivityTitle() { return R.string.our_team; }
 
     @Override
     public void bindUI(View rootView) {

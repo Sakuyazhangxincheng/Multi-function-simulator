@@ -2,8 +2,8 @@
     <string name="app_name" translatable="false">蓝牙遥控器</string>
     <string name="night_mode">夜间模式</string>
     <string name="switch_language">切换语言</string>
-    <string name="privacy_policy">隐私政策</string>
-    <string name="about_us">关于我们</string>
+    <string name="our_team">我们的团队</string>
+    <string name="support_us">支持我们</string>
 
     <string name="tab_home">设备</string>
     <string name="tab_us">设置</string>

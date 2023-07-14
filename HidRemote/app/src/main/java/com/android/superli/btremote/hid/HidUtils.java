@@ -26,7 +26,7 @@ public class HidUtils {
     public static BluetoothDevice BtDevice;
     public static BluetoothHidDevice HidDevice;
 
-    public static void RegistApp(Context context) {
+    public static void RegisterApp(Context context) {
         try {
             if (IsRegister) {
 
@@ -115,7 +115,7 @@ public class HidUtils {
                     if (TextUtils.isEmpty(HidUtils.SelectedDeviceMac)) {
                     } else {
                         if (HidUtils.Pair(HidUtils.SelectedDeviceMac)) {
-                            HidUtils.RegistApp(context.getApplicationContext());
+                            HidUtils.RegisterApp(context.getApplicationContext());
                             UtilCls.DelayTask(new Runnable() {
                                 @Override
                                 public void run() {
@@ -148,6 +148,7 @@ public class HidUtils {
                 HidDevice = (BluetoothHidDevice) proxy;
                 HidConsts.HidDevice = HidDevice;
                 BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.Descriptor);
+//                BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.C_Descriptor);
                 HidDevice.registerApp(sdp, null, null, Executors.newCachedThreadPool(), mCallback);
             }
         }

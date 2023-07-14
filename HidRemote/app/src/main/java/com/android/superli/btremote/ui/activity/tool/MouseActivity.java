@@ -52,7 +52,7 @@ public class MouseActivity extends XActivity implements View.OnClickListener {
 
         ImmersionBar.with(this)
                 .titleBar(R.id.llt_content)
-                .statusBarDarkFont(theme == 0 ? true : false, 0.2f)
+                .statusBarDarkFont(theme == 0, 0.2f)
                 .keyboardEnable(true)
                 .init();
 

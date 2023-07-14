@@ -15,7 +15,7 @@ import com.android.base.router.Router;
 import com.android.base.ui.XActivity;
 import com.android.superli.btremote.bean.MBluetoothDevice;
 import com.android.superli.btremote.hid.HidEvent;
-import com.android.superli.btremote.hid.HidUitls;
+import com.android.superli.btremote.hid.HidUtils;
 import com.android.superli.btremote.ui.activity.MainActivity;
 import com.android.superli.btremote.ui.adapter.BleDeviceAdpter;
 import com.android.superli.btremote.ui.views.dialog.AlertDialog;
@@ -123,17 +123,17 @@ public class ScanActivity extends XActivity {
 
         String deviceAddress = mBluetoothDevice.getAddress();
         if (TextUtils.isEmpty(deviceAddress)) {
-            boolean pair = HidUitls.Pair(deviceAddress);
+            boolean pair = HidUtils.Pair(deviceAddress);
             if (pair) {
-                HidUitls.connect(mBluetoothDevice);
+                HidUtils.connect(mBluetoothDevice);
             }
             return;
         }
 
-        HidUitls.SelectedDeviceMac = deviceAddress;
-        boolean pair = HidUitls.Pair(deviceAddress);
+        HidUtils.SelectedDeviceMac = deviceAddress;
+        boolean pair = HidUtils.Pair(deviceAddress);
         if (pair) {
-            HidUitls.connect(deviceAddress);
+            HidUtils.connect(deviceAddress);
         }
     }
 

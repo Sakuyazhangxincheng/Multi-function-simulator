@@ -16,10 +16,10 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.concurrent.Executors;
 
-public class HidUitls {
+public class HidUtils {
     public static String SelectedDeviceMac = "";
     public static boolean _connected = false;
-    public static boolean IsRegisted = false;
+    public static boolean IsRegister = false;
 
     public static BluetoothAdapter mBluetoothAdapter;
     public static BluetoothProfile bluetoothProfile;
@@ -28,7 +28,7 @@ public class HidUitls {
 
     public static void RegistApp(Context context) {
         try {
-            if (IsRegisted) {
+            if (IsRegister) {
 
             } else {
                 BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileServiceListener, BluetoothProfile.HID_DEVICE);
@@ -63,7 +63,7 @@ public class HidUitls {
 
     public static boolean IsConnected() {
         try {
-            return HidUitls._connected;
+            return HidUtils._connected;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -72,7 +72,7 @@ public class HidUitls {
     }
 
     private static void IsConnected(boolean _connected) {
-        HidUitls._connected = _connected;
+        HidUtils._connected = _connected;
     }
 
     public static boolean connect(String deviceAddress) {
@@ -106,23 +106,23 @@ public class HidUitls {
             return;
         }
         try {
-            if (HidUitls.HidDevice != null) {
-                if (HidUitls.BtDevice == null) {
-                    HidUitls.BtDevice = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(HidUitls.SelectedDeviceMac);
+            if (HidUtils.HidDevice != null) {
+                if (HidUtils.BtDevice == null) {
+                    HidUtils.BtDevice = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(HidUtils.SelectedDeviceMac);
                 }
-                int state = HidUitls.HidDevice.getConnectionState(HidUitls.BtDevice);
+                int state = HidUtils.HidDevice.getConnectionState(HidUtils.BtDevice);
                 if (state == BluetoothProfile.STATE_DISCONNECTED) {
-                    if (TextUtils.isEmpty(HidUitls.SelectedDeviceMac)) {
+                    if (TextUtils.isEmpty(HidUtils.SelectedDeviceMac)) {
                     } else {
-                        if (HidUitls.Pair(HidUitls.SelectedDeviceMac)) {
-                            HidUitls.RegistApp(context.getApplicationContext());
+                        if (HidUtils.Pair(HidUtils.SelectedDeviceMac)) {
+                            HidUtils.RegistApp(context.getApplicationContext());
                             UtilCls.DelayTask(new Runnable() {
                                 @Override
                                 public void run() {
                                     context.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            HidUitls.connect(HidUitls.SelectedDeviceMac);
+                                            HidUtils.connect(HidUtils.SelectedDeviceMac);
                                         }
                                     });
                                 }
@@ -156,16 +156,16 @@ public class HidUitls {
     public static final BluetoothHidDevice.Callback mCallback = new BluetoothHidDevice.Callback() {
         @Override
         public void onAppStatusChanged(BluetoothDevice pluggedDevice, boolean registered) {
-            IsRegisted = registered;
+            IsRegister = registered;
         }
 
         @Override
         public void onConnectionStateChanged(BluetoothDevice device, int state) {
             if (state == BluetoothProfile.STATE_DISCONNECTED) {
-                HidUitls.IsConnected(false);
+                HidUtils.IsConnected(false);
                 EventBus.getDefault().post(new HidEvent(HidEvent.tcpType.onDisConnected));
             } else if (state == BluetoothProfile.STATE_CONNECTED) {
-                HidUitls.IsConnected(true);
+                HidUtils.IsConnected(true);
                 EventBus.getDefault().post(new HidEvent(HidEvent.tcpType.onConnected));
             } else if (state == BluetoothProfile.STATE_CONNECTING) {
                 EventBus.getDefault().post(new HidEvent(HidEvent.tcpType.onConnecting));

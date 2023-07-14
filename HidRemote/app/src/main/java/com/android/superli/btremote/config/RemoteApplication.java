@@ -7,8 +7,8 @@ import android.os.Build;
 import com.android.base.App;
 import com.android.base.language.LanguagesManager;
 import com.android.superli.btremote.hid.HidConsts;
-import com.android.superli.btremote.hid.HidUitls;
 import com.android.base.SharedPreferencesUtil;
+import com.android.superli.btremote.hid.HidUtils;
 import com.android.superli.btremote.utils.Utils;
 import com.tencent.bugly.Bugly;
 import com.umeng.analytics.MobclickAgent;
@@ -51,7 +51,7 @@ public class RemoteApplication extends App {
         INSTANCE = this;
 
         if ( Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) {
-            HidUitls.RegistApp(getApplicationContext());
+            HidUtils.RegistApp(getApplicationContext());
             HidConsts.reporttrans();
         }
 

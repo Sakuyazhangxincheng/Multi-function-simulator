@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.hid.HidConsts;
-import com.android.superli.btremote.hid.HidUitls;
+import com.android.superli.btremote.hid.HidUtils;
 
 import java.util.Date;
 import java.util.TimerTask;
@@ -91,7 +91,7 @@ public class MouseDialog {
                         return true;
                     case ACTION_MOVE:
                         maxPointerCount = Math.max(maxPointerCount, motionEvent.getPointerCount());
-                        if (HidUitls.IsConnected()) {
+                        if (HidUtils.IsConnected()) {
                             int deltaX = (int) ((motionEvent.getX() - Xpad) * rate);
                             int deltay = (int) ((motionEvent.getY() - Ypad) * rate);
                             HidConsts.MouseMove(deltaX, deltay, 0, !leftbtnUped || !leftUped, !rightbtnUped, !midbtnUped);
@@ -106,7 +106,7 @@ public class MouseDialog {
                         now = new Date().getTime();
                         dis = now - actionDownTime_Pad;
                         actionDownTime_Pad = now;
-                        if (HidUitls.IsConnected()) {
+                        if (HidUtils.IsConnected()) {
                             if (maxPointerCount == 1) {
                                 if (dis >= 50 && dis <= 150 && leftUped) {
                                     virtureClickTask = HidConsts.LeftBtnClickAsync(150);
@@ -147,7 +147,7 @@ public class MouseDialog {
                         return true;
                     case ACTION_MOVE:
                         maxPointerCount = Math.max(maxPointerCount, motionEvent.getPointerCount());
-                        if (HidUitls.IsConnected()) {
+                        if (HidUtils.IsConnected()) {
                             if (!midbtnUped) {
                                 HidConsts.MidBtnUp();
                                 midbtnUped = true;

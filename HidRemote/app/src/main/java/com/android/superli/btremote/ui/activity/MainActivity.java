@@ -9,7 +9,7 @@ import com.android.base.ui.XActivity;
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.hid.HidConsts;
 import com.android.superli.btremote.hid.HidEvent;
-import com.android.superli.btremote.hid.HidUitls;
+import com.android.superli.btremote.hid.HidUtils;
 import com.android.superli.btremote.ui.fragment.SettingFragment;
 import com.android.superli.btremote.ui.fragment.SimpleHomeFragmen;
 import com.android.superli.btremote.ui.views.BottomBar;
@@ -113,9 +113,9 @@ public class MainActivity extends XActivity implements View.OnClickListener {
         if (message.mtcpType == HidEvent.tcpType.onDisConnected) {
             tv_state.setText("(已断开连接)");
             if (HidConsts.HidDevice != null) {
-                HidUitls.reConnect(this);
-                HidConsts.HidDevice = HidUitls.HidDevice;
-                HidConsts.BtDevice = HidUitls.BtDevice;
+                HidUtils.reConnect(this);
+                HidConsts.HidDevice = HidUtils.HidDevice;
+                HidConsts.BtDevice = HidUtils.BtDevice;
             }
         } else if (message.mtcpType == HidEvent.tcpType.onConnecting) {
             tv_state.setText("(正在连接……)");

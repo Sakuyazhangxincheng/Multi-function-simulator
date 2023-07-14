@@ -39,10 +39,36 @@ public class HidConsts {
             (byte) 0xc0
     };
 
+    public final static byte[] C_Descriptor = {
+            (byte)0x05, (byte)0x01, // Usage Page (Generic Desktop Ctrls)
+            (byte)0x09, (byte)0x05, // Usage (Game Pad)
+            (byte)0xA1, (byte)0x01, // Collection (Application)
+            (byte)0x85, (byte)0x04, // Report ID (4)
+            (byte)0x05, (byte)0x09, // Usage Page (Button)
+            (byte)0x19, (byte)0x01, // Usage Minimum (Button 1)
+            (byte)0x29, (byte)0x10, // Usage Maximum (Button 16)
+            (byte)0x15, (byte)0x00, // Logical Minimum (0)
+            (byte)0x25, (byte)0x01, // Logical Maximum (1)
+            (byte)0x75, (byte)0x01, // Report Size (1)
+            (byte)0x95, (byte)0x10, // Report Count (16)
+            (byte)0x81, (byte)0x02, // Input (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
+            (byte)0x05, (byte)0x01, // Usage Page (Generic Desktop Ctrls)
+            (byte)0x15, (byte)0x81, // Logical Minimum (-127)
+            (byte)0x25, (byte)0x7F, // Logical Maximum (127)
+            (byte)0x09, (byte)0x30, // Usage (X)
+            (byte)0x09, (byte)0x31, // Usage (Y)
+            (byte)0x09, (byte)0x32, // Usage (Z)
+            (byte)0x09, (byte)0x35, // Usage (Rz)
+            (byte)0x75, (byte)0x08, // Report Size (8)
+            (byte)0x95, (byte)0x04, // Report Count (4)
+            (byte)0x81, (byte)0x02, // Input (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
+            (byte)0xC0, // End Col
+    };
+
     private static Handler handler;
     private static ExecutorService singleThreadExecutor;
 
-    public static void reporttrans() {
+    public static void reportTrans() {
         singleThreadExecutor = Executors.newSingleThreadExecutor();
         singleThreadExecutor.execute(new Runnable() {
             @Override
@@ -94,7 +120,7 @@ public class HidConsts {
 
     protected static void addInputReport(final HidReport inputReport) {
         if (handler == null || singleThreadExecutor == null) {
-            reporttrans();
+            reportTrans();
         }
         if (inputReport != null && handler != null) {
             Message msg = new Message();
@@ -103,15 +129,60 @@ public class HidConsts {
         }
     }
 
-    public static void SendMouseReport(byte[] reportData) {
-        HidReport report = new HidReport(HidReport.DeviceType.Mouse, (byte) 0x01, reportData);
-        addInputReport(report);
-    }
 
     private static HidReport MouseReport = new HidReport(HidReport.DeviceType.Mouse, (byte) 0x01, new byte[]{0, 0, 0, 0});
+    private static HidReport ControllerReport = new HidReport(HidReport.DeviceType.Controller, (byte) 0x04, new byte[]{0, 0, 0, 0, 0, 0});
+    //1:btn1-8(XY AB)   2:btn2-16   3:X方向   4:Y方向    5:Z方向    6:Rz方向
 
+    public static void XBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 1;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void XBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~1);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void YBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 2;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void YBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~2);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 4;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~4);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 8;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~8);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void RSInfo(double X, double Y, double Z, double Rz){
+        double T = 230.0;
+        if(ControllerReport.SendState.equals(HidReport.State.Sending)){
+            return;
+        }
+        if(X != 0) X = X / T * 127;
+        if(Y != 0) Y = Y / T * 127;
+        if(Z != 0) Z = Z / T * 127;
+        if(Rz != 0) Rz = Rz / T * 127;
+        ControllerReport.ReportData[2] = (byte)X;
+        ControllerReport.ReportData[3] = (byte)Y;
+        ControllerReport.ReportData[4] = (byte)Z;
+        ControllerReport.ReportData[5] = (byte)Rz;
+
+        addInputReport(ControllerReport);
+    }
     public static void MouseMove(int dx, int dy, int wheel, final boolean leftButton, final boolean rightButton, final boolean middleButton) {
-
         if (MouseReport.SendState.equals(HidReport.State.Sending)) {
             return;
         }
@@ -244,6 +315,14 @@ public class HidConsts {
 
     public static void SendKeyReport(byte[] reportData) {
         HidReport report = new HidReport(HidReport.DeviceType.Keyboard, (byte) 0x02, reportData);
+        addInputReport(report);
+    }
+    public static void SendMouseReport(byte[] reportData) {
+        HidReport report = new HidReport(HidReport.DeviceType.Mouse, (byte) 0x01, reportData);
+        addInputReport(report);
+    }
+    public static void SendControllerReport(byte[] reportData){
+        HidReport report = new HidReport(HidReport.DeviceType.Controller, (byte) 0x04, reportData);
         addInputReport(report);
     }
 }

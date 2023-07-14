@@ -13,7 +13,7 @@ public class HidReport {
     }
 
     public enum DeviceType{
-        None,Mouse,Keyboard
+        None,Mouse,Keyboard,Controller
     }
 
     public enum State{

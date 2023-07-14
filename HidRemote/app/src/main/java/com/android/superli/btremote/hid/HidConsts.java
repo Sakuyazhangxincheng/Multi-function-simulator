@@ -132,9 +132,57 @@ public class HidConsts {
 
     private static HidReport MouseReport = new HidReport(HidReport.DeviceType.Mouse, (byte) 0x01, new byte[]{0, 0, 0, 0});
     private static HidReport ControllerReport = new HidReport(HidReport.DeviceType.Controller, (byte) 0x04, new byte[]{0, 0, 0, 0, 0, 0});
-    //1:btn1-8   2:btn2-16   3:X   4:Y    5:Z    6:Rz
-    public static void MouseMove(int dx, int dy, int wheel, final boolean leftButton, final boolean rightButton, final boolean middleButton) {
+    //1:btn1-8(XY AB)   2:btn2-16   3:X方向   4:Y方向    5:Z方向    6:Rz方向
 
+    public static void XBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 1;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void XBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~1);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void YBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 2;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void YBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~2);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 4;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void ABtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~4);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnDown(){
+        HidConsts.ControllerReport.ReportData[0] |= 8;
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void BBtnUp(){
+        HidConsts.ControllerReport.ReportData[0] &= (~8);
+        SendControllerReport(HidConsts.ControllerReport.ReportData);
+    }
+    public static void RSInfo(double X, double Y, double Z, double Rz){
+        double T = 1.0;
+        if(ControllerReport.SendState.equals(HidReport.State.Sending)){
+            return;
+        }
+        if(X != 0) X = X / T * 127;
+        if(Y != 0) Y = Y / T * 127;
+        if(Z != 0) Z = Z / T * 127;
+        if(Rz != 0) Rz = Rz / T * 127;
+        ControllerReport.ReportData[2] = (byte)X;
+        ControllerReport.ReportData[3] = (byte)Y;
+        ControllerReport.ReportData[4] = (byte)Z;
+        ControllerReport.ReportData[5] = (byte)Rz;
+
+        addInputReport(ControllerReport);
+    }
+    public static void MouseMove(int dx, int dy, int wheel, final boolean leftButton, final boolean rightButton, final boolean middleButton) {
         if (MouseReport.SendState.equals(HidReport.State.Sending)) {
             return;
         }

@@ -12,7 +12,7 @@ import com.gyf.immersionbar.ImmersionBar;
 
 public class AboutUsActivity extends XActivity implements View.OnClickListener {
 
-    private TextView tv_app_msg;
+    //private TextView tv_app_msg;
     private TextView tv_msg;
 
     @Override
@@ -45,11 +45,11 @@ public class AboutUsActivity extends XActivity implements View.OnClickListener {
 //            }
 //        });
 
-        tv_app_msg = findViewById(R.id.tv_app_msg);
+        //tv_app_msg = findViewById(R.id.tv_app_msg);
         tv_msg = findViewById(R.id.tv_msg);
 
-        tv_app_msg.setText(getAppVersionName() + "");
-        tv_msg.setText("没有太晚的开始，不如就从今天行动！");
+        //tv_app_msg.setText(getAppVersionName() + "");
+        tv_msg.setText("您的每一份支持，都是我们继续下去的最大动力！");
 
     }
 

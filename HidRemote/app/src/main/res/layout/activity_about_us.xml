@@ -17,19 +17,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="213dp"
+            android:layout_height="213dp"
             android:layout_marginTop="60dp"
-            android:src="@mipmap/icon_app" />
-
-        <TextView
-            android:id="@+id/tv_app_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_padding"
-            android:text=""
-            android:textColor="@color/subtitle"
-            android:textSize="@dimen/m_text_size" />
+            android:src="@drawable/icon_support_us" />
 
         <TextView
             android:id="@+id/tv_msg"

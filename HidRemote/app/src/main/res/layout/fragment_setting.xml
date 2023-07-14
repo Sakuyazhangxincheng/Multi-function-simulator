@@ -109,30 +109,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:visibility="visible">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/item_height"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/item_padding"
-                    android:paddingRight="@dimen/item_padding"
-                    android:text="更多好玩"
-                    android:textColor="@color/main_text"
-                    android:textSize="@dimen/s_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/item_height"
-                    android:drawableRight="@mipmap/gray_in"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/item_padding"
-                    android:paddingRight="@dimen/item_padding"
-                    android:text="www.wnkong.com"
-                    android:textColor="@color/main_color"
-                    android:textSize="@dimen/t_text_size" />
-            </LinearLayout>
+                android:visibility="visible"/>
 
             <View
                 android:layout_width="match_parent"

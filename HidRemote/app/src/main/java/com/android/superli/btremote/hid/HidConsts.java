@@ -167,7 +167,7 @@ public class HidConsts {
         SendControllerReport(HidConsts.ControllerReport.ReportData);
     }
     public static void RSInfo(double X, double Y, double Z, double Rz){
-        double T = 1.0;
+        double T = 230.0;
         if(ControllerReport.SendState.equals(HidReport.State.Sending)){
             return;
         }

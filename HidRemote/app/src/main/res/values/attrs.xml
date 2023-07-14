@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="RockerView2">
+        <attr name="areaBackground" format="color|reference" />
+        <attr name="rockerBackground" format="color|reference" />
+        <attr name="rockerRadius" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="AttachLayout">
         <!--是否需要自动吸边-->
         <attr name="customAttachDirect" format="integer|reference" />

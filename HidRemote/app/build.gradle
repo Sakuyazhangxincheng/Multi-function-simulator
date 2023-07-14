@@ -152,7 +152,6 @@ dependencies {
     implementation project(':lib_wheelview')
 
 
-
     //aar 包的形式运行
 //    implementation fileTree(dir: 'libs', include: ['*.aar'])
 //    implementation "androidx.viewpager2:viewpager2:1.0.0"

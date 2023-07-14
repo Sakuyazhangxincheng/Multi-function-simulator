@@ -14,6 +14,7 @@ import com.android.base.router.Router;
 import com.android.base.ui.XFragment;
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.bean.Tool;
+import com.android.superli.btremote.ui.activity.tool.DiyActivity;
 import com.android.superli.btremote.ui.activity.tool.KeyboardActivity;
 import com.android.superli.btremote.ui.activity.tool.MouseActivity;
 import com.android.superli.btremote.ui.activity.tool.PptActivity;
@@ -94,6 +95,7 @@ public class SimpleHomeFragmen extends XFragment {
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_ppt, "ppt工具", PptActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_remote, "无线遥控器", RemoteActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_controller, "手柄", ShoubingActivity.class), toolDataHolder));
+        mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_controller, "自定义", DiyActivity.class), toolDataHolder));
         mSuperAdapter.setData(mLayoutWrappers);
     }
 

@@ -170,9 +170,9 @@ public class HidConsts {
                               final boolean X_flag, final boolean Y_flag,
                               final boolean A_flag, final boolean B_flag){
         double T = 230.0;
-        if(ControllerReport.SendState.equals(HidReport.State.Sending)){
-            return;
-        }
+//        if(ControllerReport.SendState.equals(HidReport.State.Sending)){
+//            return;
+//        }
         if(X != 0) X = X / T * 127;
         if(Y != 0) Y = Y / T * 127;
         if(Z != 0) Z = Z / T * 127;
@@ -201,7 +201,7 @@ public class HidConsts {
         ControllerReport.ReportData[3] = (byte)Y;
         ControllerReport.ReportData[4] = (byte)Z;
         ControllerReport.ReportData[5] = (byte)Rz;
-
+        System.out.println("x:" + X + "y:" + Y);
         addInputReport(ControllerReport);
     }
     public static void MouseMove(int dx, int dy, int wheel, final boolean leftButton, final boolean rightButton, final boolean middleButton) {

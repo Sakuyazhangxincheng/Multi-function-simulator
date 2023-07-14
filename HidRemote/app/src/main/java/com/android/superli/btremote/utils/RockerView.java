@@ -191,7 +191,6 @@ public class RockerView extends View {
         // 摇杆半径
         mRockerRadius = typedArray.getDimensionPixelOffset(R.styleable.RockerView2_rockerRadius, DEFAULT_ROCKER_RADIUS);
 
-        //Log.i(TAG, "initAttribute: mAreaBackground = " + areaBackground + "   mRockerBackground = " + rockerBackground + "  mRockerRadius = " + mRockerRadius);
         typedArray.recycle();
     }
 
@@ -216,11 +215,6 @@ public class RockerView extends View {
         } else {
             measureHeight = DEFAULT_SIZE;
         }
-//        //Log.i(TAG, "onMeasure: --------------------------------------");
-//        //Log.i(TAG, "onMeasure: widthMeasureSpec = " + widthMeasureSpec + " heightMeasureSpec = " + heightMeasureSpec);
-//        //Log.i(TAG, "onMeasure: widthMode = " + widthMode + "  measureWidth = " + widthSize);
-//        //Log.i(TAG, "onMeasure: heightMode = " + heightMode + "  measureHeight = " + widthSize);
-//        //Log.i(TAG, "onMeasure: measureWidth = " + measureWidth + " measureHeight = " + measureHeight);
         setMeasuredDimension(measureWidth, measureHeight);
     }
 
@@ -232,8 +226,6 @@ public class RockerView extends View {
         int measuredHeight = getMeasuredHeight();
         int cx = measuredWidth / 2;
         int cy = measuredHeight / 2;
-        //Log.i(TAG, "onDraw: cx=" + cx);
-        //Log.i(TAG, "onDraw: cy=" + cy);
         // 中心点
         mCenterPoint.set(cx, cy);
         // 可移动区域的半径
@@ -292,14 +284,9 @@ public class RockerView extends View {
                 callBackStart();
                 moveX = event.getX();
                 moveY = event.getY();
-                //Log.i(TAG, "onTouchEvent: ACTION_DOWN moveX=" + moveX);
-                //Log.i(TAG, "onTouchEvent: ACTION_DOWN moveY=" + moveY);
             case MotionEvent.ACTION_MOVE:// 移动
                 moveX = event.getX();
                 moveY = event.getY();
-                //Log.i(TAG, "onTouchEvent:ACTION_MOVE moveX=" + moveX);
-                //Log.i(TAG, "onTouchEvent: ACTION_MOVE moveY=" + moveY);
-
                 if ((moveX - cx) > (mAreaRadius / 3) || (cx - moveX) > (mAreaRadius / 3) || (moveY - cy) > (mAreaRadius / 3) || (cy - moveY) > (mAreaRadius / 3))
                 {
                     mRockerPosition = getRockerPositionPoint(mCenterPoint, new Point((int) moveX, (int) moveY), mAreaRadius, mRockerRadius);
@@ -310,22 +297,14 @@ public class RockerView extends View {
                 }
                 break;
             case MotionEvent.ACTION_UP:// 抬起
-                // 回调 结束
-                callBackFinish();
-//                upX = event.getX();
-//                upY = event.getY();
                 //回到中间位置
                 moveRocker(mCenterPoint.x, mCenterPoint.y);
-                mOnAngleChangeListener.angle(0,0,0);
-//                //Log.i(TAG, "onTouchEvent: ACTION_UP : x = " + upX + " y = " + upY);
-                break;
-            case MotionEvent.ACTION_CANCEL:// 移出区域
+                mOnAngleChangeListener.angle(0,230,230);
                 // 回调 结束
-                //callBackFinish();
-//                moveX = event.getX();
-//                moveY = event.getY();
-//                moveRocker(mCenterPoint.x, mCenterPoint.y);
-//                //Log.i(TAG, "onTouchEvent: ACTION_CANCEL : x = " + upX + " y = " + upY);
+                callBackFinish();
+                System.out.println(11111);
+//                upX = event.getX();
+//                upY = event.getY();
                 break;
             default:
                 break;
@@ -497,8 +476,6 @@ public class RockerView extends View {
                         if ((moveX - cx) > (mAreaRadius / 2) || (cx - moveX) > (mAreaRadius / 2) || (moveY - cy) > (mAreaRadius / 2) || (cy - moveY) > (mAreaRadius / 2))
 
                         {
-                            //Log.i(TAG, "callBack: move....cx= " + cx + ",cy=" + cy);
-                            //Log.i(TAG, "callBack: move....moveX=" + moveX);
                             if (ANGLE_0 <= angle && ANGLE_8D_OF_0P > angle || ANGLE_8D_OF_7P <= angle && ANGLE_360 > angle) {
                                 // 右
                                 mOnShakeListener.direction(Direction.DIRECTION_RIGHT);

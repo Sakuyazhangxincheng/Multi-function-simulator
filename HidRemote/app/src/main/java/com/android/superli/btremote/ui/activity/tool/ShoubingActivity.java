@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,15 +32,11 @@ public class ShoubingActivity extends AppCompatActivity {
 //        TextView tv_area = findViewById(R.id.tv_area);
 
         //X Y A B
-        ImageView btn_X = findViewById(R.id.btn_X);
-        ImageView btn_Y = findViewById(R.id.btn_Y);
-        ImageView btn_A = findViewById(R.id.btn_A);
-        ImageView btn_B = findViewById(R.id.btn_B);
+        ImageButton btn_X = findViewById(R.id.btn_X);
+        ImageButton btn_Y = findViewById(R.id.btn_Y);
+        ImageButton btn_A = findViewById(R.id.btn_A);
+        ImageButton btn_B = findViewById(R.id.btn_B);
 
-        RelativeLayout rl_X = findViewById(R.id.zheng);
-        RelativeLayout rl_Y = findViewById(R.id.san);
-        RelativeLayout rl_A = findViewById(R.id.r_close);
-        RelativeLayout rl_B = findViewById(R.id.yuan);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         close.setOnClickListener(new View.OnClickListener() {
@@ -55,16 +52,12 @@ public class ShoubingActivity extends AppCompatActivity {
                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                    XUp = false;
                    HidConsts.XBtnDown();
-                   rl_X.setBackgroundResource(R.drawable.shape_key_unsel_c5);
+                   btn_X.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                    VibrateUtil.vibrate();
-                   XUp = true;
-                   HidConsts.XBtnUp();
-                   rl_X.setBackgroundResource(R.drawable.btn_bg);
-                   System.out.println(111);
                }else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
                    XUp = true;
                    HidConsts.XBtnUp();
-                   rl_X.setBackgroundResource(R.drawable.btn_bg);
+                   btn_X.setBackgroundResource(R.drawable.btn_bg);
                    System.out.println(111);
                }
                return false;
@@ -77,12 +70,12 @@ public class ShoubingActivity extends AppCompatActivity {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     YUp = false;
                     HidConsts.YBtnDown();
-                    rl_Y.setBackgroundResource(R.drawable.shape_key_unsel_c5);
+                    btn_Y.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                     VibrateUtil.vibrate();
                 }else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
                     YUp = true;
                     HidConsts.YBtnUp();
-                    rl_Y.setBackgroundResource(R.drawable.btn_bg);
+                    btn_Y.setBackgroundResource(R.drawable.btn_bg);
                 }
                 return false;
             }
@@ -94,12 +87,12 @@ public class ShoubingActivity extends AppCompatActivity {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     AUp = false;
                     HidConsts.ABtnDown();
-                    rl_A.setBackgroundResource(R.drawable.shape_key_unsel_c5);
+                    btn_A.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                     VibrateUtil.vibrate();
                 }else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
                     AUp = true;
                     HidConsts.ABtnUp();
-                    rl_A.setBackgroundResource(R.drawable.btn_bg);
+                    btn_A.setBackgroundResource(R.drawable.btn_bg);
                 }
                 return false;
             }
@@ -111,12 +104,12 @@ public class ShoubingActivity extends AppCompatActivity {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     BUp = false;
                     HidConsts.BBtnDown();
-                    rl_B.setBackgroundResource(R.drawable.shape_key_unsel_c5);
+                    btn_B.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                     VibrateUtil.vibrate();
                 }else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
                     BUp = true;
                     HidConsts.BBtnUp();
-                    rl_B.setBackgroundResource(R.drawable.btn_bg);
+                    btn_B.setBackgroundResource(R.drawable.btn_bg);
                 }
                 return false;
             }
@@ -140,6 +133,7 @@ public class ShoubingActivity extends AppCompatActivity {
                 if(Y1 > 230) Y1 = 230;
                 else if (Y1 < -230) Y1 = -230;
 
+//                System.out.println("x:" + X1 + "y:" + Y1);
                 HidConsts.RSInfo(X1,Y1,0,0,!XUp,!YUp,!AUp,!BUp);
             }
 

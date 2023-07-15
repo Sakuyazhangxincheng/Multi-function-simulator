@@ -118,13 +118,6 @@ public class SharedPreferencesUtil {
     }
 
 
-    /**
-     * @return void
-     * @Author AlanMa
-     * @Description 清除数据
-     * @Date 2020/4/26
-     * @Param [key]
-     */
     public static void cleanByKey(String key) {
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);

@@ -47,7 +47,7 @@ public class MainActivity extends XActivity implements View.OnClickListener {
         int theme = (int) SharedPreferencesUtil.getData("theme", 0);
         ImmersionBar.with(this).titleBar(R.id.llt_title)
 
-                .statusBarDarkFont(theme == 0 ? true : false, 0.2f)
+                .statusBarDarkFont(theme == 0, 0.2f)
                 .keyboardEnable(true)
                 .init();
 

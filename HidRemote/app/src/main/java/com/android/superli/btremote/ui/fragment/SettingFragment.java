@@ -15,10 +15,18 @@ import com.android.superli.btremote.ui.activity.AboutUsActivity;
 import com.android.superli.btremote.ui.activity.OurTeamActivity;
 import com.android.superli.btremote.ui.views.SwitchButton;
 import com.android.base.SharedPreferencesUtil;
+import com.android.superli.btremote.ui.views.dialog.AlertDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +39,8 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
 
     private SwitchButton switchButton;
     private TextView tv_vibration;
+    private TextView tvType;
+    private int type = 1;
 
     public static SettingFragment newInstance() {
         SettingFragment fragment = new SettingFragment();
@@ -82,6 +92,20 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
         } else if (vibrate == -1) {
             tv_vibration.setText("关闭");
         }
+
+        tvType = getActivity().findViewById(R.id.tv_type);
+        try {
+            readFile();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(type == 1) {
+            tvType.setText("键鼠");
+        }else if(type == 0){
+            tvType.setText("手柄");
+        }else {
+            tvType.setText("");
+        }
     }
 
     @Override
@@ -126,44 +150,67 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
                 break;
             case R.id.llt_tv_type:
                 List<String> datass = new ArrayList<>();
-                datass.add("键鼠、PPT、遥控");
+                datass.add("键鼠");
                 datass.add("手柄");
 
                 OptionsPickerView pvNoLinkOptionss = new OptionsPickerBuilder(getActivity(), new OnOptionsSelectListener() {
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         //tv_vibration.setText(datass.get(options1));
-                        if (options1 == 0) {
-                            String filename = "type.txt";
-                            FileOutputStream outputStream;
-                            TextView tvType = getActivity().findViewById(R.id.tv_type);
-                            tvType.setText("键鼠");
-                            try {
-                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
-                                String s = "1";
-                                outputStream.write(s.getBytes());
-                                outputStream.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        } else if (options1 == 1) {
-                            String filename = "type.txt";
-                            FileOutputStream outputStream;
-                            TextView tvType = getActivity().findViewById(R.id.tv_type);
-                            tvType.setText("手柄");
-                            try {
-                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
-                                String s = "0";
-                                outputStream.write(s.getBytes());
-                                outputStream.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        } /*else if (options1 == 2) {
-                            SharedPreferencesUtil.putData("vibrate", 50);
-                        } else if (options1 == 3) {
-                            SharedPreferencesUtil.putData("vibrate", -1);
-                        }*/
+
+                        String str = tvType.getText().toString();
+                        if (options1 == 0 && !("键鼠").equals(str)) {
+                            new AlertDialog(getActivity())
+                                    .init()
+                                    .setMsg("注:需要取消蓝牙配对再重连并重启本设备才可切换类型. 是否确认?")
+                                    .setNegativeButton("取消", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {}
+                                    })
+                                    .setPositiveButton("确认", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            String filename = "type.txt";
+                                            FileOutputStream outputStream;
+                                            tvType.setText("键鼠");
+                                            try {
+                                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                                                String s = "1";
+                                                outputStream.write(s.getBytes());
+                                                outputStream.close();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                            getActivity().finish();
+                                        }
+                                    }).show();
+
+                        } else if (options1 == 1 && !("手柄").equals(str)) {
+                            new AlertDialog(getActivity())
+                                    .init()
+                                    .setMsg("注:需要取消蓝牙配对再重连并重启本设备才可切换类型. 是否确认?")
+                                    .setNegativeButton("取消", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {}
+                                    })
+                                    .setPositiveButton("确认", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            String filename = "type.txt";
+                                            FileOutputStream outputStream;
+                                            tvType.setText("手柄");
+                                            try {
+                                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                                                String s = "0";
+                                                outputStream.write(s.getBytes());
+                                                outputStream.close();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                            getActivity().finish();
+                                        }
+                                    }).show();
+                        }
                     }
                 })
                         .setCancelText("取消")
@@ -200,5 +247,19 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
                 Router.newIntent(getActivity()).to(AboutUsActivity.class).launch();
                 break;
         }
+    }
+    public void readFile() throws IOException {
+        FileInputStream inputStream = getActivity().openFileInput("type.txt");
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+        type = Integer.parseInt(String.valueOf(stringBuilder));
+        bufferedReader.close();
+        inputStreamReader.close();
+        inputStream.close();
     }
 }

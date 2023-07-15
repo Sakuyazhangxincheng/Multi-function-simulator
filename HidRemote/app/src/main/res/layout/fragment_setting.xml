@@ -48,7 +48,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/item_padding"
                     android:paddingRight="@dimen/item_padding"
-                    android:text="键盘"
+                    android:text="键鼠"
                     android:textColor="@color/subtitle"
                     android:textSize="@dimen/t_text_size" />
 

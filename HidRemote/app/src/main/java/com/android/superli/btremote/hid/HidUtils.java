@@ -14,6 +14,12 @@ import com.android.superli.btremote.utils.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.concurrent.Executors;
 
 public class HidUtils {
@@ -21,6 +27,7 @@ public class HidUtils {
     public static boolean _connected = false;
     public static boolean IsRegister = false;
     public static boolean isKM = true;
+    public static int type = 1;
     public static int i = 0;
     public static BluetoothAdapter mBluetoothAdapter;
     public static BluetoothProfile bluetoothProfile;
@@ -33,6 +40,18 @@ public class HidUtils {
 
             } else {
                 BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileServiceListener, BluetoothProfile.HID_DEVICE);
+                FileInputStream inputStream = context.openFileInput("type.txt");
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                type = Integer.parseInt(String.valueOf(stringBuilder));
+                bufferedReader.close();
+                inputStreamReader.close();
+                inputStream.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,6 +167,7 @@ public class HidUtils {
             if (profile == BluetoothProfile.HID_DEVICE) {
                 HidDevice = (BluetoothHidDevice) proxy;
                 HidConstants.HidDevice = HidDevice;
+                isKM = type != 0;
                 BluetoothHidDeviceAppSdpSettings sdp = null;
                 if(isKM) {
                     sdp = new BluetoothHidDeviceAppSdpSettings(HidConstants.NAME_KM, HidConstants.DESCRIPTION_KM, HidConstants.PROVIDER_KM, BluetoothHidDevice.SUBCLASS1_COMBO, HidConstants.Descriptor);

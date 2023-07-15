@@ -6,7 +6,7 @@ import android.widget.Button;
 
 import com.android.base.ui.XActivity;
 import com.android.superli.btremote.R;
-import com.android.superli.btremote.hid.HidConsts;
+import com.android.superli.btremote.hid.HidConstants;
 import com.android.base.SharedPreferencesUtil;
 import com.android.superli.btremote.utils.VibrateUtil;
 import com.gyf.immersionbar.ImmersionBar;
@@ -60,11 +60,11 @@ public class PptActivity extends XActivity implements View.OnClickListener {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if(event.getAction() == MotionEvent.ACTION_DOWN){
-                HidConsts.KbdKeyDown(v.getTag().toString());
+                HidConstants.KbdKeyDown(v.getTag().toString());
                 v.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                 VibrateUtil.vibrate();
             }else if(event.getAction() == MotionEvent.ACTION_UP){
-                HidConsts.KbdKeyUp(v.getTag().toString());
+                HidConstants.KbdKeyUp(v.getTag().toString());
                 v.setBackgroundResource(R.drawable.shape_key_sel_c5);
             }
             return false;

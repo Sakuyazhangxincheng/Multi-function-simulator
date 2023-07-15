@@ -302,7 +302,7 @@ public class RockerView extends View {
                 mOnAngleChangeListener.angle(0,230,230);
                 // 回调 结束
                 callBackFinish();
-                System.out.println(11111);
+//                System.out.println(11111);
 //                upX = event.getX();
 //                upY = event.getY();
                 break;

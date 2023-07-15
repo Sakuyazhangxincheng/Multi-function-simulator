@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.superli.btremote.R;
-import com.android.superli.btremote.hid.HidConsts;
+import com.android.superli.btremote.hid.HidConstants;
 import com.android.superli.btremote.hid.HidUtils;
 
 import java.util.Date;
@@ -81,7 +81,7 @@ public class MouseDialog {
                             if (virtureClickTask != null) {
                                 virtureClickTask.cancel();
                             }
-                            HidConsts.LeftBtnDown();
+                            HidConstants.LeftBtnDown();
                             leftUped = false;
                         }
                         actionDownTime_Pad = now;
@@ -94,7 +94,7 @@ public class MouseDialog {
                         if (HidUtils.IsConnected()) {
                             int deltaX = (int) ((motionEvent.getX() - Xpad) * rate);
                             int deltay = (int) ((motionEvent.getY() - Ypad) * rate);
-                            HidConsts.MouseMove(deltaX, deltay, 0, !leftbtnUped || !leftUped, !rightbtnUped, !midbtnUped);
+                            HidConstants.MouseMove(deltaX, deltay, 0, !leftbtnUped || !leftUped, !rightbtnUped, !midbtnUped);
                         }
                         Xpad = motionEvent.getX();
                         Ypad = motionEvent.getY();
@@ -109,13 +109,13 @@ public class MouseDialog {
                         if (HidUtils.IsConnected()) {
                             if (maxPointerCount == 1) {
                                 if (dis >= 50 && dis <= 150 && leftUped) {
-                                    virtureClickTask = HidConsts.LeftBtnClickAsync(150);
+                                    virtureClickTask = HidConstants.LeftBtnClickAsync(150);
                                 } else if (dis >= 50 && dis <= 150 && !leftUped) {
-                                    HidConsts.LeftBtnUp();
+                                    HidConstants.LeftBtnUp();
                                     leftUped = true;//模拟左键抬起
-                                    HidConsts.LeftBtnClickAsync(20);
+                                    HidConstants.LeftBtnClickAsync(20);
                                 } else {
-                                    HidConsts.LeftBtnUp();
+                                    HidConstants.LeftBtnUp();
                                     leftUped = true;//模拟左键抬起
                                     virtureClickTask = null;
                                 }
@@ -138,7 +138,7 @@ public class MouseDialog {
                 switch (motionEvent.getAction()) {
                     case ACTION_DOWN:
                     case ACTION_POINTER_DOWN:
-                        HidConsts.MidBtnDown();
+                        HidConstants.MidBtnDown();
                         midbtnUped = false;
                         maxPointerCount = motionEvent.getPointerCount();
                         Ymus = motionEvent.getY();
@@ -149,18 +149,18 @@ public class MouseDialog {
                         maxPointerCount = Math.max(maxPointerCount, motionEvent.getPointerCount());
                         if (HidUtils.IsConnected()) {
                             if (!midbtnUped) {
-                                HidConsts.MidBtnUp();
+                                HidConstants.MidBtnUp();
                                 midbtnUped = true;
                             }
                             int deltay = -(int) ((motionEvent.getY() - Ymus));
-                            HidConsts.MouseMove(0, 0, deltay, !leftbtnUped, !rightbtnUped, !midbtnUped);
+                            HidConstants.MouseMove(0, 0, deltay, !leftbtnUped, !rightbtnUped, !midbtnUped);
                         }
                         Ymus = motionEvent.getY();
                         return true;
                     case ACTION_UP:
                     case ACTION_POINTER_UP:
                         if (!midbtnUped) {
-                            HidConsts.MidBtnUp();
+                            HidConstants.MidBtnUp();
                             midbtnUped = true;
                         }
                         rlt_mid.setBackgroundResource(R.drawable.shape_key_sel_c5);
@@ -178,11 +178,11 @@ public class MouseDialog {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    HidConsts.LeftBtnUp();
+                    HidConstants.LeftBtnUp();
                     leftbtnUped = true;
                     tv_left.setBackgroundResource(R.drawable.shape_key_sel_c5);
                 } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    HidConsts.LeftBtnDown();
+                    HidConstants.LeftBtnDown();
                     leftbtnUped = false;
                     tv_left.setBackgroundResource(R.drawable.shape_key_unsel_c5);
 
@@ -196,11 +196,11 @@ public class MouseDialog {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    HidConsts.RightBtnUp();
+                    HidConstants.RightBtnUp();
                     rightbtnUped = true;
                     tv_rigth.setBackgroundResource(R.drawable.shape_key_sel_c5);
                 } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    HidConsts.RightBtnDown();
+                    HidConstants.RightBtnDown();
                     rightbtnUped = false;
                     tv_rigth.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                 }

@@ -34,16 +34,12 @@ public class VibrateUtil {
             return;
         }
         VibrationEffect vibrationEffect = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            int defaultAmplitude = VibrationEffect.DEFAULT_AMPLITUDE;
-            if (vibrator.hasAmplitudeControl()) {
-                defaultAmplitude = vibrate;
-            }
-            vibrationEffect = VibrationEffect.createOneShot(milliseconds, defaultAmplitude);
-            vibrator.vibrate(vibrationEffect);
-        } else {
-            vibrator.vibrate(milliseconds);
+        int defaultAmplitude = VibrationEffect.DEFAULT_AMPLITUDE;
+        if (vibrator.hasAmplitudeControl()) {
+            defaultAmplitude = vibrate;
         }
+        vibrationEffect = VibrationEffect.createOneShot(milliseconds, defaultAmplitude);
+        vibrator.vibrate(vibrationEffect);
     }
 
 }

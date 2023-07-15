@@ -6,7 +6,7 @@ import android.os.Build;
 
 import com.android.base.App;
 import com.android.base.language.LanguagesManager;
-import com.android.superli.btremote.hid.HidConsts;
+import com.android.superli.btremote.hid.HidConstants;
 import com.android.base.SharedPreferencesUtil;
 import com.android.superli.btremote.hid.HidUtils;
 import com.android.superli.btremote.utils.Utils;
@@ -51,7 +51,7 @@ public class RemoteApplication extends App {
         INSTANCE = this;
 
         HidUtils.RegisterApp(getApplicationContext());
-        HidConsts.reportTrans();
+        HidConstants.reportTrans();
 
     }
 

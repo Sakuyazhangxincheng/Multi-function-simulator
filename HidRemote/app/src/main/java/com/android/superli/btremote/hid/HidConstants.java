@@ -145,7 +145,6 @@ public class HidConstants {
             public void run() {
                 Looper.prepare();
                 handler = new Handler(Looper.myLooper()) {
-
                     @Override
                     public void handleMessage(@NonNull Message msg) {
                         super.handleMessage(msg);

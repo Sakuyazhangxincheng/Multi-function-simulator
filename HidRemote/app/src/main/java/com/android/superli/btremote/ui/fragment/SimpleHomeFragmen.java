@@ -18,7 +18,6 @@ import com.android.superli.btremote.ui.activity.tool.DiyActivity;
 import com.android.superli.btremote.ui.activity.tool.KeyboardActivity;
 import com.android.superli.btremote.ui.activity.tool.MouseActivity;
 import com.android.superli.btremote.ui.activity.tool.PptActivity;
-import com.android.superli.btremote.ui.activity.tool.RemoteActivity;
 import com.android.superli.btremote.ui.activity.tool.ShoubingActivity;
 
 import java.util.ArrayList;
@@ -93,7 +92,6 @@ public class SimpleHomeFragmen extends XFragment {
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_key, "键盘", KeyboardActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_mouse, "鼠标", MouseActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_ppt, "ppt工具", PptActivity.class), toolDataHolder));
-        mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_remote, "无线遥控器", RemoteActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_controller, "手柄", ShoubingActivity.class), toolDataHolder));
         mLayoutWrappers.add(new LayoutWrapper(R.layout.item_tool_simple, 1, new Tool(R.drawable.icon_diy, "自定义", DiyActivity.class), toolDataHolder));
         mSuperAdapter.setData(mLayoutWrappers);

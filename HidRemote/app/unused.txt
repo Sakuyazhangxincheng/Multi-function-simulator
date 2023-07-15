@@ -38,6 +38,8 @@ okhttp3.internal.platform.JdkWithJettyBootPlatform:
 okhttp3.internal.connection.RealConnection$1
 com.alibaba.fastjson.serializer.GuavaCodec
 com.alibaba.fastjson.serializer.BigIntegerCodec
+com.android.superli.btremote.ui.adapter.OtherKeyHolder$MenuAdpter:
+    public void <init>(com.android.superli.btremote.ui.adapter.OtherKeyHolder,android.content.Context)
 com.alibaba.fastjson.asm.Opcodes
 org.greenrobot.eventbus.util.HasExecutionScope
 org.greenrobot.eventbus.util.ErrorDialogManager$HoneycombManagerFragment:
@@ -150,6 +152,7 @@ okhttp3.internal.Internal:
     public abstract okhttp3.internal.connection.StreamAllocation streamAllocation(okhttp3.Call)
     public abstract okhttp3.Call newWebSocketCall(okhttp3.OkHttpClient,okhttp3.Request)
 com.android.base.language.LanguagesPreferences:
+    public void setAppLanguage(java.util.Locale)
     public void clearAppLanguage()
 com.alibaba.fastjson.serializer.BooleanCodec
 com.alibaba.fastjson.support.retrofit.Retrofit2ConverterFactory$ResponseBodyConverter
@@ -158,6 +161,16 @@ com.android.base.Config:
     public void <init>()
 okhttp3.internal.http2.Ping
 okhttp3.internal.cache.DiskLruCache
+com.android.superli.btremote.hid.HidConstants:
+    public static final java.lang.String NAME_KM
+    public static final java.lang.String NAME_C
+    public static final java.lang.String NAME_C_Xbox
+    public static final java.lang.String DESCRIPTION_KM
+    public static final java.lang.String DESCRIPTION_C
+    public static final java.lang.String DESCRIPTION_C_Xbox
+    public static final java.lang.String PROVIDER_KM
+    public static final java.lang.String PROVIDER_C
+    public static final java.lang.String PROVIDER_C_Xbox
 com.android.superli.btremote.ui.views.dialog.BottomSheetDialog$2
 com.lzy.okgo.request.DeleteRequest
 com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl:
@@ -181,8 +194,6 @@ org.repackage.com.vivo.identifier.IdentifierManager:
     public static java.lang.String b(android.content.Context,java.lang.String)
     public static java.lang.String c(android.content.Context)
 com.alibaba.fastjson.parser.deserializer.EnumCreatorDeserializer
-com.android.superli.btremote.hid.HidUitls:
-    public void <init>()
 okio.GzipSource
 com.google.gson.internal.JavaVersion:
     private void <init>()
@@ -228,6 +239,43 @@ com.google.gson.TypeAdapter:
     public final java.lang.Object fromJson(java.io.Reader)
     public final java.lang.Object fromJson(java.lang.String)
     public final java.lang.Object fromJsonTree(com.google.gson.JsonElement)
+com.android.superli.btremote.utils.RockerView:
+    public void setOnShakeListener(com.android.superli.btremote.utils.RockerView$DirectionMode,com.android.superli.btremote.utils.RockerView$OnShakeListener)
+    private float upX
+    private float upY
+    private static final java.lang.String TAG
+    private static final int DEFAULT_SIZE
+    private static final int DEFAULT_ROCKER_RADIUS
+    private static final double ANGLE_0
+    private static final double ANGLE_360
+    private static final double ANGLE_HORIZONTAL_2D_OF_0P
+    private static final double ANGLE_HORIZONTAL_2D_OF_1P
+    private static final double ANGLE_VERTICAL_2D_OF_0P
+    private static final double ANGLE_VERTICAL_2D_OF_1P
+    private static final double ANGLE_4D_OF_0P
+    private static final double ANGLE_4D_OF_1P
+    private static final double ANGLE_4D_OF_2P
+    private static final double ANGLE_4D_OF_3P
+    private static final double ANGLE_ROTATE45_4D_OF_0P
+    private static final double ANGLE_ROTATE45_4D_OF_1P
+    private static final double ANGLE_ROTATE45_4D_OF_2P
+    private static final double ANGLE_ROTATE45_4D_OF_3P
+    private static final double ANGLE_8D_OF_0P
+    private static final double ANGLE_8D_OF_1P
+    private static final double ANGLE_8D_OF_2P
+    private static final double ANGLE_8D_OF_3P
+    private static final double ANGLE_8D_OF_4P
+    private static final double ANGLE_8D_OF_5P
+    private static final double ANGLE_8D_OF_6P
+    private static final double ANGLE_8D_OF_7P
+    private static final int AREA_BACKGROUND_MODE_PIC
+    private static final int AREA_BACKGROUND_MODE_COLOR
+    private static final int AREA_BACKGROUND_MODE_XML
+    private static final int AREA_BACKGROUND_MODE_DEFAULT
+    private static final int ROCKER_BACKGROUND_MODE_PIC
+    private static final int ROCKER_BACKGROUND_MODE_COLOR
+    private static final int ROCKER_BACKGROUND_MODE_XML
+    private static final int ROCKER_BACKGROUND_MODE_DEFAULT
 www.bigkoo.pickerview.view.WheelOptions:
     private void setLineSpacingMultiplier()
     static synthetic java.util.List access$000(www.bigkoo.pickerview.view.WheelOptions)
@@ -846,6 +894,9 @@ okhttp3.internal.http2.Http2Stream$FramingSource
 com.alibaba.fastjson.asm.MethodCollector
 okhttp3.internal.cache.CacheInterceptor
 okio.Pipe$PipeSource
+com.android.superli.btremote.ui.adapter.NumKeyHolder:
+    public void <init>(android.view.View)
+    android.view.View$OnTouchListener onTouchListener
 com.lzy.okgo.cookie.CookieJarImpl:
     public synchronized void saveFromResponse(okhttp3.HttpUrl,java.util.List)
     public synchronized java.util.List loadForRequest(okhttp3.HttpUrl)
@@ -1018,6 +1069,7 @@ com.google.gson.reflect.TypeToken:
 com.alibaba.fastjson.asm.ByteVector
 com.alibaba.fastjson.support.retrofit.Retrofit2ConverterFactory
 okio.InflaterSource
+com.android.superli.btremote.ui.adapter.OtherKeyHolder$1
 okhttp3.EventListener$Factory:
     public abstract okhttp3.EventListener create(okhttp3.Call)
 okio.ForwardingSource
@@ -1044,6 +1096,8 @@ com.alibaba.fastjson.util.ASMClassLoader$1
 com.google.gson.internal.LinkedHashTreeMap$1
 com.alibaba.fastjson.util.ASMUtils
 com.lzy.okgo.exception.CacheException
+com.android.superli.btremote.hid.HidUtils:
+    public void <init>()
 org.repackage.com.miui.deviceid.IdentifierManager:
     public void <init>()
     public static java.lang.String a(android.content.Context)
@@ -1956,6 +2010,7 @@ com.lzy.okgo.callback.StringCallback
 com.android.base.hid.AbsoluteMousePeripheral
 com.android.base.language.LanguagesUtils:
     public void <init>()
+    public static void setApplicationLanguage(android.content.Context,java.util.Locale)
     static android.content.res.Resources getLanguageResources(android.content.Context,java.util.Locale)
 okhttp3.internal.http.HttpMethod
 okhttp3.FormBody$Builder
@@ -1972,6 +2027,7 @@ com.android.base.ui.XFragment:
     public synthetic bridge java.lang.Object newP()
 com.android.base.language.LanguagesManager:
     public void <init>()
+    public static boolean setAppLanguage(android.content.Context,java.util.Locale)
     public static boolean setSystemLanguage(android.content.Context)
     public static java.util.Locale getSystemLanguage()
     public static java.lang.String getLanguageString(android.content.Context,java.util.Locale,int)
@@ -2184,8 +2240,6 @@ com.alibaba.fastjson.parser.JSONToken
 www.bigkoo.pickerview.view.WheelOptions$1
 com.alibaba.fastjson.util.ParameterizedTypeImpl
 okhttp3.Interceptor$Chain
-com.android.superli.btremote.ui.views.SwitchButton:
-    public void <init>(android.content.Context,android.util.AttributeSet,int,int)
 okhttp3.internal.http.BridgeInterceptor
 me.yokeyword.fragmentation.TransactionDelegate:
     private void doDispatchStartTransaction(androidx.fragment.app.FragmentManager,me.yokeyword.fragmentation.ISupportFragment,me.yokeyword.fragmentation.ISupportFragment,int,int,int)
@@ -2266,7 +2320,8 @@ okhttp3.OkHttpClient$1:
     public okhttp3.HttpUrl getHttpUrlChecked(java.lang.String)
     public okhttp3.internal.connection.StreamAllocation streamAllocation(okhttp3.Call)
     public okhttp3.Call newWebSocketCall(okhttp3.OkHttpClient,okhttp3.Request)
-com.android.superli.btremote.utils.MD5
+com.android.superli.btremote.utils.RockerView$OnRockListener:
+    public abstract void onMove(double)
 com.bigkoo.pickerview.R
 okhttp3.internal.connection.ConnectInterceptor
 com.lzy.okgo.BuildConfig
@@ -2291,11 +2346,6 @@ me.yokeyword.fragmentation.queue.Action:
     public static final int ACTION_LOAD
 com.alibaba.fastjson.serializer.AfterFilter
 com.android.superli.btremote.ui.views.dialog.BottomSheetDialog$OnSheetItemClickListener
-com.android.superli.btremote.ui.adapter.RemoteAdapter:
-    public void <init>(java.util.List)
-    public static final int REMOTE_KEY
-    public static final int NUM_KEY
-    public static final int TOOL_KEY
 okhttp3.Call
 com.android.superli.btremote.utils.ToastUtils$4
 com.alibaba.fastjson.JSONPath$KeySetSegment
@@ -2527,6 +2577,10 @@ okhttp3.RequestBody:
     public long contentLength()
     public abstract void writeTo(okio.BufferedSink)
 com.lzy.okgo.db.DownloadManager$1
+com.android.superli.btremote.ui.adapter.OtherKeyHolder:
+    public void <init>(android.view.View,android.content.Context)
+    private androidx.recyclerview.widget.RecyclerView mRecyclerview
+    private com.android.superli.btremote.ui.adapter.OtherKeyHolder$MenuAdpter mMenuAdpter
 org.repackage.com.vivo.identifier.DataBaseOperation:
     private static final java.lang.String a
     private static final java.lang.String b
@@ -2542,10 +2596,6 @@ org.repackage.com.vivo.identifier.DataBaseOperation:
 www.contrarywind.view.WheelView:
     private static final int VELOCITY_FLING
     private static final float SCALE_CONTENT
-com.android.superli.btremote.hid.HidConsts:
-    public static final java.lang.String NAME
-    public static final java.lang.String DESCRIPTION
-    public static final java.lang.String PROVIDER
 com.alibaba.fastjson.serializer.ListSerializer
 com.alibaba.fastjson.support.jaxrs.FastJsonFeature
 okhttp3.HttpUrl$Builder
@@ -2564,6 +2614,8 @@ com.lzy.okgo.utils.HttpUtils:
     public static boolean deleteFile(java.lang.String)
     public static okhttp3.MediaType guessMimeType(java.lang.String)
     public static void runOnUiThread(java.lang.Runnable)
+com.android.superli.btremote.ui.activity.AboutUsActivity:
+    public java.lang.String getAppVersionName()
 com.alibaba.fastjson.serializer.Labels$DefaultLabelFilter
 okhttp3.RequestBody$2:
     public okhttp3.MediaType contentType()
@@ -2595,6 +2647,7 @@ com.google.gson.internal.bind.TypeAdapters:
     public static com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,com.google.gson.TypeAdapter)
 okhttp3.CertificatePinner$Builder:
     public varargs okhttp3.CertificatePinner$Builder add(java.lang.String,java.lang.String[])
+com.android.superli.btremote.ui.adapter.NumKeyHolder$1
 com.alibaba.fastjson.support.spring.annotation.FastJsonFilter
 okhttp3.internal.connection.RealConnection:
     public void <init>(okhttp3.ConnectionPool,okhttp3.Route)
@@ -2649,6 +2702,8 @@ me.yokeyword.fragmentation.ISupportFragment:
 com.alibaba.fastjson.serializer.BeforeFilter
 com.alibaba.fastjson.parser.SymbolTable
 com.alibaba.fastjson.util.UTF8Decoder
+com.android.superli.btremote.ui.activity.tool.DiyActivity:
+    private void deleteButton()
 com.google.gson.internal.bind.util.ISO8601Utils:
     public void <init>()
     public static java.lang.String format(java.util.Date)
@@ -2676,6 +2731,7 @@ com.google.gson.stream.JsonScope
 com.alibaba.fastjson.support.jaxrs.FastJsonProvider
 okhttp3.Request$Builder
 com.android.base.adapter.SingleAdapter:
+    public void addData(java.util.List)
     public boolean isHaveData()
     public void addData(java.lang.Object)
     public void clearDatas()
@@ -2816,6 +2872,12 @@ okhttp3.internal.http.RealInterceptorChain
 okio.package-info
 com.android.superli.btremote.hid.KeyConfigs:
     public void <init>()
+    public static java.util.List getNumKeys()
+    public static java.util.List getKeys3()
+    public static java.util.List getKeys4()
+    public static java.util.List getKeys5()
+    public static java.util.List getOtherKey()
+    public static java.util.List getOtherKey2()
 com.alibaba.fastjson.serializer.ObjectArrayCodec
 com.android.superli.btremote.ui.activity.MainActivity:
     public static final int FIRST
@@ -2891,13 +2953,11 @@ com.google.gson.internal.ConstructorConstructor$4:
 okhttp3.internal.http2.Http2Connection$Listener
 org.greenrobot.eventbus.EventBus$1:
     final synthetic org.greenrobot.eventbus.EventBus this$0
-com.android.superli.btremote.hid.HidUitls$1$1:
-    final synthetic com.android.superli.btremote.hid.HidUitls$1 this$0
+com.android.superli.btremote.utils.RockerView:
+    private com.android.superli.btremote.utils.RockerView$OnRockListener listener
 www.bigkoo.pickerview.view.WheelOptions:
     private android.view.View view
     private boolean isRestoreItem
-com.android.superli.btremote.ui.adapter.RemoteKeyHolder$2:
-    final synthetic com.android.superli.btremote.ui.adapter.RemoteKeyHolder this$0
 okhttp3.internal.platform.AndroidPlatform$CloseGuard:
     boolean warnIfOpen(java.lang.Object)
     private final java.lang.reflect.Method getMethod
@@ -3029,8 +3089,6 @@ com.tencent.bugly.beta.tinker.TinkerUtils$ScreenState$1:
     final synthetic com.tencent.bugly.beta.tinker.TinkerUtils$ScreenState this$0
 com.android.superli.btremote.config.RemoteApplication$1:
     final synthetic com.android.superli.btremote.config.RemoteApplication this$0
-com.android.superli.btremote.ui.adapter.RemoteKeyHolder$3:
-    final synthetic com.android.superli.btremote.ui.adapter.RemoteKeyHolder this$0
 me.yokeyword.fragmentation.SupportFragmentDelegate:
     private boolean mIsHidden
     boolean mAnimByActivity
@@ -3051,6 +3109,8 @@ okhttp3.ConnectionPool:
     static final synthetic boolean $assertionsDisabled
 com.google.gson.internal.ConstructorConstructor$1:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.android.superli.btremote.ui.fragment.SettingFragment$2$4:
+    final synthetic com.android.superli.btremote.ui.fragment.SettingFragment$2 this$1
 me.yokeyword.fragmentation.debug.DebugStackDelegate$StackViewTouchListener:
     final synthetic me.yokeyword.fragmentation.debug.DebugStackDelegate this$0
 com.lzy.okgo.cookie.CookieJarImpl:
@@ -3061,8 +3121,6 @@ com.gyf.immersionbar.BarParams:
     public int contentColor
     public int contentColorTransform
     public float contentAlpha
-com.android.superli.btremote.ui.adapter.OtherKeyHolder$1:
-    final synthetic com.android.superli.btremote.ui.adapter.OtherKeyHolder this$0
 org.greenrobot.eventbus.SubscriberMethodFinder$FindState:
     java.lang.Class subscriberClass
 org.repackage.com.miui.deviceid.IdentifierManager:
@@ -3118,8 +3176,6 @@ okhttp3.internal.platform.OptionalMethod:
     private final java.lang.Class returnType
     private final java.lang.String methodName
     private final java.lang.Class[] methodParams
-com.android.superli.btremote.hid.HidConsts$1$1:
-    final synthetic com.android.superli.btremote.hid.HidConsts$1 this$0
 com.gyf.immersionbar.ImmersionBar:
     private boolean mIsActivity
     private java.util.Map mTagMap
@@ -3146,12 +3202,10 @@ org.repackage.com.vivo.identifier.IdentifierIdClient:
 okhttp3.internal.connection.RouteDatabase:
     private final java.util.Set failedRoutes
 okhttp3.Route
-com.android.superli.btremote.ui.activity.tool.RemoteActivity$2:
-    final synthetic com.android.superli.btremote.ui.activity.tool.RemoteActivity this$0
 com.tencent.bugly.proguard.s$1:
     final synthetic com.tencent.bugly.proguard.s a
-com.android.superli.btremote.ui.fragment.SettingFragment$1:
-    final synthetic com.android.superli.btremote.ui.fragment.SettingFragment this$0
+com.android.superli.btremote.ui.fragment.SettingFragment$2$2:
+    final synthetic com.android.superli.btremote.ui.fragment.SettingFragment$2 this$1
 com.lzy.okgo.interceptor.HttpLoggingInterceptor:
     private volatile com.lzy.okgo.interceptor.HttpLoggingInterceptor$Level printLevel
     private java.util.logging.Level colorLevel
@@ -3190,13 +3244,13 @@ com.android.superli.btremote.config.RemoteApplication:
 okhttp3.internal.Util$1
 com.tencent.bugly.beta.tinker.TinkerResultService$1:
     final synthetic com.tencent.bugly.beta.tinker.TinkerResultService this$0
+com.android.superli.btremote.hid.HidConstants$1$1:
+    final synthetic com.android.superli.btremote.hid.HidConstants$1 this$0
 com.google.gson.Gson$1:
     final synthetic com.google.gson.Gson this$0
 com.android.superli.btremote.ui.views.MouseDialog:
     private android.widget.LinearLayout container
     private android.view.Display display
-com.android.superli.btremote.ui.activity.tool.RemoteActivity$3:
-    final synthetic com.android.superli.btremote.ui.activity.tool.RemoteActivity this$0
 com.google.gson.internal.ConstructorConstructor$11:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
 com.tencent.bugly.proguard.ak$2:
@@ -3225,19 +3279,12 @@ com.yydcdut.sdlv.SlideListView$3:
     final synthetic com.yydcdut.sdlv.SlideListView this$0
 com.google.gson.internal.ConstructorConstructor$7:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
-com.android.superli.btremote.ui.views.SwitchButton:
-    private final int ANIMATE_STATE_NONE
-    private final int ANIMATE_STATE_PENDING_DRAG
-    private final int ANIMATE_STATE_DRAGING
-    private final int ANIMATE_STATE_PENDING_RESET
-    private final int ANIMATE_STATE_PENDING_SETTLE
-    private final int ANIMATE_STATE_SWITCH
-    private float width
-    private float centerX
 me.yokeyword.fragmentation.TransactionDelegate:
     private androidx.fragment.app.FragmentActivity mActivity
 com.android.superli.btremote.ui.activity.tool.PptActivity$1:
     final synthetic com.android.superli.btremote.ui.activity.tool.PptActivity this$0
+com.android.superli.btremote.hid.HidUtils$1$1:
+    final synthetic com.android.superli.btremote.hid.HidUtils$1 this$0
 okhttp3.OkHttpClient$1
 com.lzy.okgo.model.HttpHeaders:
     public static final java.util.TimeZone GMT_TIME_ZONE
@@ -3266,11 +3313,7 @@ okhttp3.MediaType:
     private final java.lang.String type
     private final java.lang.String subtype
     private final java.lang.String charset
-com.android.superli.btremote.ui.adapter.NumKeyHolder$1:
-    final synthetic com.android.superli.btremote.ui.adapter.NumKeyHolder this$0
 okhttp3.internal.connection.RealConnection
-com.android.superli.btremote.ui.activity.tool.RemoteActivity$1:
-    final synthetic com.android.superli.btremote.ui.activity.tool.RemoteActivity this$0
 com.android.superli.btremote.hid.HidReport:
     public com.android.superli.btremote.hid.HidReport$DeviceType deviceType
 okhttp3.internal.http.HttpDate:
@@ -3294,8 +3337,6 @@ com.android.superli.btremote.SplashActivity$9:
     final synthetic com.android.superli.btremote.SplashActivity this$0
 com.tencent.bugly.proguard.am$1:
     final synthetic com.tencent.bugly.proguard.am a
-com.android.superli.btremote.ui.adapter.RemoteKeyHolder$1:
-    final synthetic com.android.superli.btremote.ui.adapter.RemoteKeyHolder this$0
 me.yokeyword.fragmentation.helper.internal.AnimatorHelper$1:
     final synthetic me.yokeyword.fragmentation.helper.internal.AnimatorHelper this$0
 okhttp3.internal.platform.Platform:

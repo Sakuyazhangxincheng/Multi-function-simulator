@@ -13,7 +13,6 @@ import com.android.base.ui.XFragment;
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.ui.activity.AboutUsActivity;
 import com.android.superli.btremote.ui.activity.OurTeamActivity;
-import com.android.superli.btremote.ui.views.SwitchButton;
 import com.android.base.SharedPreferencesUtil;
 import com.android.superli.btremote.ui.views.dialog.AlertDialog;
 

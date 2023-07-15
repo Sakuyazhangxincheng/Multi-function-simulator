@@ -165,11 +165,6 @@ public class HidUtils {
             bluetoothProfile = proxy;
             if (profile == BluetoothProfile.HID_DEVICE) {
                 HidDevice = (BluetoothHidDevice) proxy;
-<<<<<<< HEAD
-                HidConsts.HidDevice = HidDevice;
-//              BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.Descriptor);
-                BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConsts.C_Descriptor);
-=======
                 HidConstants.HidDevice = HidDevice;
                 isKM = type != 0;
                 BluetoothHidDeviceAppSdpSettings sdp = null;
@@ -182,7 +177,6 @@ public class HidUtils {
                         sdp = new BluetoothHidDeviceAppSdpSettings(HidConstants.NAME_C, HidConstants.DESCRIPTION_C, HidConstants.PROVIDER_C, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConstants.C_Descriptor);
                     }
                 }
->>>>>>> 653692c7f5eefadb77c92e8d2608db18c3236fb7
                 HidDevice.registerApp(sdp, null, null, Executors.newCachedThreadPool(), mCallback);
             }
         }

@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="28"
-8-->C:\Users\lenovo\Desktop\repository\HidRemote\lib_permission\src\main\AndroidManifest.xml
+8-->E:\AS_workspace\Simulator_git\Multi-function-simulator\HidRemote\lib_permission\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\Users\lenovo\Desktop\repository\HidRemote\lib_permission\src\main\AndroidManifest.xml
+9-->E:\AS_workspace\Simulator_git\Multi-function-simulator\HidRemote\lib_permission\src\main\AndroidManifest.xml
 10
 11</manifest>

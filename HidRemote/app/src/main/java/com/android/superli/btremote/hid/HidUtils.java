@@ -141,13 +141,12 @@ public class HidUtils {
         }
 
         @SuppressLint("NewApi")
-        @Override
-        public void onServiceConnected(int profile, BluetoothProfile proxy) {
+        @Override        public void onServiceConnected(int profile, BluetoothProfile proxy) {
             bluetoothProfile = proxy;
             if (profile == BluetoothProfile.HID_DEVICE) {
                 HidDevice = (BluetoothHidDevice) proxy;
                 HidConsts.HidDevice = HidDevice;
-//                BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.Descriptor);
+//              BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.Descriptor);
                 BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConsts.C_Descriptor);
                 HidDevice.registerApp(sdp, null, null, Executors.newCachedThreadPool(), mCallback);
             }

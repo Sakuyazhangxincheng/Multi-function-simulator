@@ -295,6 +295,7 @@ public class DiyActivity extends AppCompatActivity {
                                         }else {
                                             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                                                 HidConstants.KbdKeyDown(v.getTag().toString());
+                                                System.out.println(v.getTag().toString());
                                                 v.setBackgroundResource(R.drawable.shape_key_unsel_c5);
                                                 VibrateUtil.vibrate();
                                             } else if (event.getAction() == MotionEvent.ACTION_UP) {

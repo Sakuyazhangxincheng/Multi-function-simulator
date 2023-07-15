@@ -20,7 +20,7 @@ public class HidUtils {
     public static String SelectedDeviceMac = "";
     public static boolean _connected = false;
     public static boolean IsRegister = false;
-    public static boolean isKM = false;
+    public static boolean isKM = true;
     public static int i = 0;
     public static BluetoothAdapter mBluetoothAdapter;
     public static BluetoothProfile bluetoothProfile;

@@ -275,8 +275,8 @@ public class HidConstants {
         }
     }
     public static void RSInfo_Xbox(double X, double Y, double Rx, double Ry, double Z,
-                              final boolean X_flag, final boolean Y_flag,
-                              final boolean A_flag, final boolean B_flag){
+                                    boolean X_flag, boolean Y_flag,
+                                    boolean A_flag, boolean B_flag){
         double T1 = 460;
         double T2 = 400;
         X += 230;
@@ -340,8 +340,8 @@ public class HidConstants {
     }
 
     public static void RSInfo(double X, double Y, double Z, double Rz,
-                              final boolean X_flag, final boolean Y_flag,
-                              final boolean A_flag, final boolean B_flag){
+                              boolean X_flag, boolean Y_flag,
+                              boolean A_flag, boolean B_flag){
         double T1 = 230;
         double T2 = 200;
 //        if(ControllerReport.SendState.equals(HidReport.State.Sending)){

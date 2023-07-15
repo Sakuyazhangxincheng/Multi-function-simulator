@@ -48,6 +48,8 @@ public class DiyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_diy);
 
         ArrayList<String> loadedDataArrayList = new ArrayList<>();
+        float[] loadedXArray = new float[1000];
+        float[] loadedYArray = new float[1000];
 
         //读取保存的按钮
         try {
@@ -67,12 +69,13 @@ public class DiyActivity extends AppCompatActivity {
 
             String savedArray = stringBuilder.toString();
             loadedDataArrayList = new ArrayList<>(Arrays.asList(savedArray.split(",")));
+            if(loadedDataArrayList.get(0).equals("")){
+                loadedDataArrayList = null;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        float[] loadedXArray = new float[loadedDataArrayList.size()];
-        float[] loadedYArray = new float[loadedDataArrayList.size()];
 
         try {
             FileInputStream inputStream = openFileInput("X_list.txt");
@@ -135,6 +138,7 @@ public class DiyActivity extends AppCompatActivity {
 
         //跳转事件
         Intent addIntent = new Intent(this, SelectActivity.class);
+       //Intent delteteIntent = new Intent(this, DeleteActivity.class);
 
         //所有数据
         ArrayList<String> dataList= new ArrayList<String>();
@@ -168,11 +172,13 @@ public class DiyActivity extends AppCompatActivity {
         editButton.setOnClickListener(v -> {
             if(isEdit) {
                 isEdit = false;
+                saveButton.setText("保存");
                 editButton.setText("编辑");
                 addButton.setEnabled(false);
                 addButton.setVisibility(View.GONE);
             } else {
                 isEdit = true;
+                saveButton.setText("删除");
                 editButton.setText("退出编辑");
                 addButton.setEnabled(true);
                 addButton.setVisibility(View.VISIBLE);
@@ -181,7 +187,7 @@ public class DiyActivity extends AppCompatActivity {
 
         //添加按钮的绑定事件
         addButton.setOnClickListener(v -> {
-
+            addIntent.putExtra("buttonType","add");
             startActivity(addIntent);
             finish();
         });
@@ -191,54 +197,60 @@ public class DiyActivity extends AppCompatActivity {
         float[] finalNewXArray = newXArray;
         float[] finalNewYArray = newYArray;
         saveButton.setOnClickListener(v -> {
+            if(isEdit){
+                addIntent.putExtra("buttonType","delete");
+                startActivity(addIntent);
+                finish();
+            }else{
+                if(true){
+                    //ArrayList<String> arrayList = new ArrayList<>();
+                    String dataArray = TextUtils.join(",", finalDataList);
+                    String filename = "data_list.txt";
+                    FileOutputStream outputStream;
+                    try {
+                        outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                        outputStream.write(dataArray.getBytes());
+                        outputStream.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ArrayList<String> newXArrayList = new ArrayList<>();
+                    for (float f : finalNewXArray) {
+                        newXArrayList.add(Float.toString(f));
+                    }
+                    String XArray = TextUtils.join(",", newXArrayList);
+                    System.out.println("Xarry:   "+XArray);
+                    filename = "X_list.txt";
+                    //FileOutputStream outputStream;
+                    try {
+                        outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                        outputStream.write(XArray.getBytes());
+                        outputStream.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-            if(finalDataList.size()!=0){
-                //ArrayList<String> arrayList = new ArrayList<>();
-                String dataArray = TextUtils.join(",", finalDataList);
-                String filename = "data_list.txt";
-                FileOutputStream outputStream;
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(dataArray.getBytes());
-                    outputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                ArrayList<String> newXArrayList = new ArrayList<>();
-                for (float f : finalNewXArray) {
-                    newXArrayList.add(Float.toString(f));
-                }
-                String XArray = TextUtils.join(",", newXArrayList);
-                System.out.println("Xarry:   "+XArray);
-                filename = "X_list.txt";
-                //FileOutputStream outputStream;
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(XArray.getBytes());
-                    outputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
 
+                    ArrayList<String> newYArrayList = new ArrayList<>();
+                    for (float f : finalNewYArray) {
+                        newYArrayList.add(Float.toString(f));
+                    }
+                    String YArray = TextUtils.join(",", newYArrayList);
+                    filename = "Y_list.txt";
+                    System.out.println("Yarry:  "+YArray);
+                    //FileOutputStream outputStream;
+                    try {
+                        outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                        outputStream.write(YArray.getBytes());
+                        outputStream.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-                ArrayList<String> newYArrayList = new ArrayList<>();
-                for (float f : finalNewYArray) {
-                    newYArrayList.add(Float.toString(f));
                 }
-                String YArray = TextUtils.join(",", newYArrayList);
-                filename = "Y_list.txt";
-                System.out.println("Yarry:  "+YArray);
-                //FileOutputStream outputStream;
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(YArray.getBytes());
-                    outputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
             }
+
         });
     }
 
@@ -338,6 +350,7 @@ public class DiyActivity extends AppCompatActivity {
             addIntent.putStringArrayListExtra("dataList", dataList);
             addIntent.putExtra("xArray",newXArray);
             addIntent.putExtra("yArray",newYArray);
+
         }
 
     }

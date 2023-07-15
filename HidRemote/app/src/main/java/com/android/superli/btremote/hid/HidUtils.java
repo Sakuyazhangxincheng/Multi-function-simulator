@@ -14,13 +14,21 @@ import com.android.superli.btremote.utils.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.concurrent.Executors;
 
 public class HidUtils {
     public static String SelectedDeviceMac = "";
     public static boolean _connected = false;
     public static boolean IsRegister = false;
-
+    public static boolean isKM = true;
+    public static int type = 1;
+    public static int i = 0;
     public static BluetoothAdapter mBluetoothAdapter;
     public static BluetoothProfile bluetoothProfile;
     public static BluetoothDevice BtDevice;
@@ -32,6 +40,18 @@ public class HidUtils {
 
             } else {
                 BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileServiceListener, BluetoothProfile.HID_DEVICE);
+                FileInputStream inputStream = context.openFileInput("type.txt");
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                type = Integer.parseInt(String.valueOf(stringBuilder));
+                bufferedReader.close();
+                inputStreamReader.close();
+                inputStream.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,15 +109,15 @@ public class HidUtils {
             BtDevice = mBluetoothAdapter.getRemoteDevice(deviceAddress);
         }
         boolean ret = HidDevice.connect(BtDevice);
-        HidConsts.BtDevice = BtDevice;
-        HidConsts.HidDevice = HidDevice;
+        HidConstants.BtDevice = BtDevice;
+        HidConstants.HidDevice = HidDevice;
         return ret;
     }
 
     public static boolean connect(BluetoothDevice device) {
         boolean ret = HidDevice.connect(device);
-        HidConsts.BtDevice = device;
-        HidConsts.HidDevice = HidDevice;
+        HidConstants.BtDevice = device;
+        HidConstants.HidDevice = HidDevice;
         return ret;
     }
 
@@ -145,9 +165,24 @@ public class HidUtils {
             bluetoothProfile = proxy;
             if (profile == BluetoothProfile.HID_DEVICE) {
                 HidDevice = (BluetoothHidDevice) proxy;
+<<<<<<< HEAD
                 HidConsts.HidDevice = HidDevice;
 //              BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS1_COMBO, HidConsts.Descriptor);
                 BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(HidConsts.NAME, HidConsts.DESCRIPTION, HidConsts.PROVIDER, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConsts.C_Descriptor);
+=======
+                HidConstants.HidDevice = HidDevice;
+                isKM = type != 0;
+                BluetoothHidDeviceAppSdpSettings sdp = null;
+                if(isKM) {
+                    sdp = new BluetoothHidDeviceAppSdpSettings(HidConstants.NAME_KM, HidConstants.DESCRIPTION_KM, HidConstants.PROVIDER_KM, BluetoothHidDevice.SUBCLASS1_COMBO, HidConstants.Descriptor);
+                }else {
+                    if(i == 10) {
+                        sdp = new BluetoothHidDeviceAppSdpSettings(HidConstants.NAME_C_Xbox, HidConstants.DESCRIPTION_C_Xbox, HidConstants.PROVIDER_C_Xbox, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConstants.C_Descriptor_Xbox);
+                    }else if(i == 0) {
+                        sdp = new BluetoothHidDeviceAppSdpSettings(HidConstants.NAME_C, HidConstants.DESCRIPTION_C, HidConstants.PROVIDER_C, BluetoothHidDevice.SUBCLASS2_GAMEPAD, HidConstants.C_Descriptor);
+                    }
+                }
+>>>>>>> 653692c7f5eefadb77c92e8d2608db18c3236fb7
                 HidDevice.registerApp(sdp, null, null, Executors.newCachedThreadPool(), mCallback);
             }
         }

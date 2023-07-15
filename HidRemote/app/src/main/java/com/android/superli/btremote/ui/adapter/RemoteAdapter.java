@@ -11,10 +11,6 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-/**
- * 自定义布局，图片+标题
- */
-
 public class RemoteAdapter extends BannerAdapter<Integer, RecyclerView.ViewHolder> {
 
     public final static int REMOTE_KEY = 1;

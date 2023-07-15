@@ -98,7 +98,7 @@ public class SplashActivity extends SupportActivity {
 
     private void rpermissions() {
         if (XXPermissions.isGrantedPermission(this, Permission.ACCESS_FINE_LOCATION)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !checkGPSIsOpen()) {
+            if (!checkGPSIsOpen()) {
                 askGpsDialog();
             } else {
                 initDoing();
@@ -134,7 +134,7 @@ public class SplashActivity extends SupportActivity {
                     @Override
                     public void onGranted(List<String> permissions, boolean all) {
                         //获取成功
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !checkGPSIsOpen()) {
+                        if (!checkGPSIsOpen()) {
                             askGpsDialog();
                         } else {
                             initDoing();

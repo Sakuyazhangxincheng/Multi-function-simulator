@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.android.base.ui.SupportFragment;
 import com.android.base.ui.XActivity;
 import com.android.superli.btremote.R;
-import com.android.superli.btremote.hid.HidConsts;
+import com.android.superli.btremote.hid.HidConstants;
 import com.android.superli.btremote.hid.HidEvent;
 import com.android.superli.btremote.hid.HidUtils;
 import com.android.superli.btremote.ui.fragment.SettingFragment;
@@ -47,7 +47,7 @@ public class MainActivity extends XActivity implements View.OnClickListener {
         int theme = (int) SharedPreferencesUtil.getData("theme", 0);
         ImmersionBar.with(this).titleBar(R.id.llt_title)
 
-                .statusBarDarkFont(theme == 0 ? true : false, 0.2f)
+                .statusBarDarkFont(theme == 0, 0.2f)
                 .keyboardEnable(true)
                 .init();
 
@@ -112,10 +112,10 @@ public class MainActivity extends XActivity implements View.OnClickListener {
     public void handleEvent(HidEvent message) {
         if (message.mtcpType == HidEvent.tcpType.onDisConnected) {
             tv_state.setText("(已断开连接)");
-            if (HidConsts.HidDevice != null) {
+            if (HidConstants.HidDevice != null) {
                 HidUtils.reConnect(this);
-                HidConsts.HidDevice = HidUtils.HidDevice;
-                HidConsts.BtDevice = HidUtils.BtDevice;
+                HidConstants.HidDevice = HidUtils.HidDevice;
+                HidConstants.BtDevice = HidUtils.BtDevice;
             }
         } else if (message.mtcpType == HidEvent.tcpType.onConnecting) {
             tv_state.setText("(正在连接……)");
@@ -140,7 +140,7 @@ public class MainActivity extends XActivity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
-        HidConsts.exit();
+        HidConstants.exit();
     }
 
     @Override

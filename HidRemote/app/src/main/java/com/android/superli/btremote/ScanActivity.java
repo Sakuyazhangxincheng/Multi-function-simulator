@@ -85,7 +85,7 @@ public class ScanActivity extends XActivity {
         int theme = (int) SharedPreferencesUtil.getData("theme", 0);
 
         ImmersionBar.with(this).titleBar(R.id.llt_title)
-                .statusBarDarkFont(theme == 0 ? true : false, 0.2f)
+                .statusBarDarkFont(theme == 0, 0.2f)
                 .keyboardEnable(true)
                 .init();
 
@@ -146,8 +146,7 @@ public class ScanActivity extends XActivity {
                     .setCancelable(true)
                     .setMsg("由于本软件的蓝牙遥控功能是基于HID协议实现，但是部分手机厂家移除了hid模块，" +
                             "所以导致了不兼容情况的出现。如果你的" +
-                            "手机出现了闪退等问题，大概率是该机型不被支持。\n\n" +
-                            "更多好玩软件：www.wnkong.com")
+                            "手机出现了闪退等问题，大概率是该机型不被支持。\n\n")
                     .setPositiveButton("了解，不再提示！", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

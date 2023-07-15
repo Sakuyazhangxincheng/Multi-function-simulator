@@ -17,6 +17,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,28 +35,23 @@ public class HidUtils {
     public static BluetoothDevice BtDevice;
     public static BluetoothHidDevice HidDevice;
 
-    public static void RegisterApp(Context context) {
-        try {
-            if (IsRegister) {
+    public static void RegisterApp(Context context) throws IOException {
+        if (IsRegister) {
 
-            } else {
-                BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileServiceListener, BluetoothProfile.HID_DEVICE);
-                FileInputStream inputStream = context.openFileInput("type.txt");
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                StringBuilder stringBuilder = new StringBuilder();
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(line);
-                }
-                type = Integer.parseInt(String.valueOf(stringBuilder));
-                bufferedReader.close();
-                inputStreamReader.close();
-                inputStream.close();
+        } else {
+            BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileServiceListener, BluetoothProfile.HID_DEVICE);
+            FileInputStream inputStream = context.openFileInput("type.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            ToastUtils.showShort("当前系统不支持蓝牙遥控!");
+            type = Integer.parseInt(String.valueOf(stringBuilder));
+            bufferedReader.close();
+            inputStreamReader.close();
+            inputStream.close();
         }
     }
 

@@ -37,7 +37,6 @@ import www.bigkoo.pickerview.view.OptionsPickerView;
 
 public class SettingFragment extends XFragment implements View.OnClickListener {
 
-    private SwitchButton switchButton;
     private TextView tv_vibration;
     private TextView tvType;
     private int type = 1;
@@ -56,7 +55,6 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
 
     @Override
     public void bindUI(View rootView) {
-        switchButton = rootView.findViewById(R.id.switch_button);
         tv_vibration = rootView.findViewById(R.id.tv_vibrate);
         rootView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         rootView.findViewById(R.id.tv_about_us).setOnClickListener(this);
@@ -64,19 +62,6 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
         rootView.findViewById(R.id.llt_tv_vibration).setOnClickListener(this);
         rootView.findViewById(R.id.llt_tv_type).setOnClickListener(this);
 
-
-        int theme = (int) SharedPreferencesUtil.getData("theme", 0);
-        if (theme == 0) {
-            switchButton.setChecked(false);
-        } else {
-            switchButton.setChecked(true);
-        }
-        switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
-                EventBus.getDefault().post(isChecked);
-            }
-        });
 
     }
 

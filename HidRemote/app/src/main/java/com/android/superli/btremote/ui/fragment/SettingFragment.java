@@ -1,10 +1,12 @@
 package com.android.superli.btremote.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.content.Context;
 
 import com.android.base.router.Router;
 import com.android.base.ui.XFragment;
@@ -16,6 +18,7 @@ import com.android.base.SharedPreferencesUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,8 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
         rootView.findViewById(R.id.tv_about_us).setOnClickListener(this);
         rootView.findViewById(R.id.tv_problem_feekback).setOnClickListener(this);
         rootView.findViewById(R.id.llt_tv_vibration).setOnClickListener(this);
-        rootView.findViewById(R.id.tv_website).setOnClickListener(this);
+        rootView.findViewById(R.id.llt_tv_type).setOnClickListener(this);
+
 
         int theme = (int) SharedPreferencesUtil.getData("theme", 0);
         if (theme == 0) {
@@ -120,20 +124,70 @@ public class SettingFragment extends XFragment implements View.OnClickListener {
                 pvNoLinkOptions.setSelectOptions(0, 0, 0);
                 pvNoLinkOptions.show();
                 break;
+            case R.id.llt_tv_type:
+                List<String> datass = new ArrayList<>();
+                datass.add("键鼠、PPT、遥控");
+                datass.add("手柄");
+
+                OptionsPickerView pvNoLinkOptionss = new OptionsPickerBuilder(getActivity(), new OnOptionsSelectListener() {
+                    @Override
+                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                        //tv_vibration.setText(datass.get(options1));
+                        if (options1 == 0) {
+                            String filename = "type.txt";
+                            FileOutputStream outputStream;
+                            TextView tvType = getActivity().findViewById(R.id.tv_type);
+                            tvType.setText("键鼠");
+                            try {
+                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                                String s = "1";
+                                outputStream.write(s.getBytes());
+                                outputStream.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else if (options1 == 1) {
+                            String filename = "type.txt";
+                            FileOutputStream outputStream;
+                            TextView tvType = getActivity().findViewById(R.id.tv_type);
+                            tvType.setText("手柄");
+                            try {
+                                outputStream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                                String s = "0";
+                                outputStream.write(s.getBytes());
+                                outputStream.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } /*else if (options1 == 2) {
+                            SharedPreferencesUtil.putData("vibrate", 50);
+                        } else if (options1 == 3) {
+                            SharedPreferencesUtil.putData("vibrate", -1);
+                        }*/
+                    }
+                })
+                        .setCancelText("取消")
+                        .setSubmitText("确定")
+                        .setTitleText("请选择要使用的设备类型")
+                        .setBgColor(getResources().getColor(R.color.bg_window))
+                        .setTitleBgColor(getResources().getColor(R.color.bg_item))
+                        .setTitleColor(getResources().getColor(R.color.main_text))
+                        .setCancelColor(getResources().getColor(R.color.main_text))
+                        .setSubmitColor(getResources().getColor(R.color.main_text))
+                        .setTextColorCenter(getResources().getColor(R.color.main_text))
+                        .build();
+
+                pvNoLinkOptionss.setNPicker(datass, null, null);
+                pvNoLinkOptionss.setSelectOptions(0, 0, 0);
+                pvNoLinkOptionss.show();
+                break;
             case R.id.tv_privacy_policy:
                 Router.newIntent(getActivity()).to(OurTeamActivity.class).launch();
-                break;
-            case R.id.tv_website:
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse("http://www.wnkong.com/");
-                intent.setData(content_url);
-                startActivity(intent);
                 break;
             case R.id.tv_problem_feekback:
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                 sendIntent.setData(Uri.parse("mailto:"));
-                sendIntent.putExtra(android.content.Intent.EXTRA_EMAIL, "1312398581@qq.com");
+                sendIntent.putExtra(android.content.Intent.EXTRA_EMAIL, "20271055@bjtu.edu.cn");
                 sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
                 try {
                     Intent chooser = Intent.createChooser(sendIntent, "Send mail...");

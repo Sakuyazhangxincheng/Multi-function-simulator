@@ -185,6 +185,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     public void returnData() {
         if (mPickerOptions.optionsSelectListener != null) {
             int[] optionsCurrentItems = wheelOptions.getCurrentItems();
+            //if (clickView == null) clickView
             mPickerOptions.optionsSelectListener.onOptionsSelect(optionsCurrentItems[0], optionsCurrentItems[1], optionsCurrentItems[2], clickView);
         }
     }

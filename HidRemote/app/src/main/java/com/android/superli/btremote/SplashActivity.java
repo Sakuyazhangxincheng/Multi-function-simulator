@@ -69,7 +69,6 @@ public class SplashActivity extends SupportActivity {
             public void stateTurningOn() {
 
             }
-
             @Override
             public void stateOn() {
                 rpermissions();

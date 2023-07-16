@@ -6,7 +6,6 @@ import android.view.View;
 import com.android.superli.btremote.R;
 import com.android.superli.btremote.bean.KeyBean;
 import com.android.superli.btremote.hid.KeyConfigs;
-import com.android.superli.btremote.config.RemoteApplication;
 import com.android.superli.btremote.hid.HidConstants;
 import com.android.superli.btremote.utils.VibrateUtil;
 

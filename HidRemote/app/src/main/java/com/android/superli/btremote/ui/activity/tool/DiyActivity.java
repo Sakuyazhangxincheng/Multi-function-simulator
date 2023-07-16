@@ -184,12 +184,16 @@ public class DiyActivity extends AppCompatActivity {
                 editButton.setText("编辑");
                 addButton.setEnabled(false);
                 addButton.setVisibility(View.GONE);
+                hengButton.setEnabled(true);
+                hengButton.setVisibility(View.VISIBLE);
             } else {
                 isEdit = true;
                 saveButton.setText("删除");
                 editButton.setText("退出编辑");
                 addButton.setEnabled(true);
                 addButton.setVisibility(View.VISIBLE);
+                hengButton.setEnabled(false);
+                hengButton.setVisibility(View.GONE);
             }
         });
 

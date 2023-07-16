@@ -10,7 +10,7 @@
 
 
 
-# 技术点
+# 相关API
 
 1、android hid api的使用;  
 2、hid 码表(<a href="https://blog.csdn.net/bona020/article/details/101289147">https://blog.csdn.net/bona020/article/details/101289147</a>);  

@@ -1,6 +1,5 @@
 package com.android.superli.btremote.ui.activity.tool;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,14 +7,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
 import com.android.superli.btremote.R;
@@ -31,8 +27,8 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DiyActivity extends AppCompatActivity {
 
@@ -133,6 +129,7 @@ public class DiyActivity extends AppCompatActivity {
         Button editButton = findViewById(R.id.editButton);
         Button addButton = findViewById(R.id.addButton);
         Button saveButton = findViewById(R.id.saveButton);
+        Button hengButton = findViewById(R.id.hengButton);
         addButton.setEnabled(false);
         addButton.setVisibility(View.GONE);
 
@@ -167,6 +164,17 @@ public class DiyActivity extends AppCompatActivity {
         }
 
 
+        AtomicBoolean flag = new AtomicBoolean(true);
+        hengButton.setOnClickListener(view -> {
+            if(flag.get()) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                flag.set(false);
+            }
+            else{
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                flag.set(true);
+            }
+        });
 
         //编辑按钮的绑定事件
         editButton.setOnClickListener(v -> {

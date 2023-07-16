@@ -28,25 +28,32 @@
         android:layout_gravity="bottom">
 
         <Button
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="保存" />
 
         <Button
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="编辑" />
 
         <Button
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="添加" />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:id="@+id/hengButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="横屏" />
 
     </LinearLayout>
 

@@ -157,7 +157,8 @@ public class HidUtils {
         }
 
         @SuppressLint("NewApi")
-        @Override        public void onServiceConnected(int profile, BluetoothProfile proxy) {
+        @Override
+        public void onServiceConnected(int profile, BluetoothProfile proxy) {
             bluetoothProfile = proxy;
             if (profile == BluetoothProfile.HID_DEVICE) {
                 HidDevice = (BluetoothHidDevice) proxy;

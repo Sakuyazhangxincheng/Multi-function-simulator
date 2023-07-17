@@ -119,7 +119,7 @@ public static int e(...);
 -dontnote com.google.android.material.**
 -dontwarn androidx.**
 
--keep class com.android.superli.btremote.bean.** { *; }
+-keep class com.android.example.btremote.bean.** { *; }
 
 # EventBus
 -keepclassmembers class ** {
@@ -180,7 +180,7 @@ public static int e(...);
 #-keep class a.**{*;}
 #-keep class com.vivo.**{*;}
 
--keep public class com.android.superli.btremote.R$*{
+-keep public class com.android.example.btremote.R$*{
 public static final int *;
 }
 

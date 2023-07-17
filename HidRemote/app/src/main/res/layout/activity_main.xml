@@ -38,7 +38,7 @@
         android:layout_weight="1"
         android:background="@color/bg_window" />
 
-    <com.android.superli.btremote.ui.views.BottomBar
+    <com.android.example.btremote.ui.views.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="48dp"

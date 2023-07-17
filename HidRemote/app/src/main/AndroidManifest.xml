@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.superli.btremote">
+    package="com.android.example.btremote">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <!--用于进行网络定位-->
@@ -27,7 +27,7 @@
 
 
     <application
-        android:name="com.android.superli.btremote.config.RemoteApplication"
+        android:name="com.android.example.btremote.config.RemoteApplication"
         android:allowBackup="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/icon_app"
@@ -57,7 +57,7 @@
             android:value="640" />
 
         <activity
-            android:name="com.android.superli.btremote.SplashActivity"
+            android:name="com.android.example.btremote.SplashActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:theme="@style/SplashAppTheme">
@@ -69,62 +69,62 @@
         </activity>
 
         <activity
-            android:name="com.android.superli.btremote.ScanActivity"
+            android:name="com.android.example.btremote.ScanActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name="com.android.superli.btremote.ui.activity.MainActivity"
+            android:name="com.android.example.btremote.ui.activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.android.superli.btremote.ui.activity.OurTeamActivity"
+            android:name="com.android.example.btremote.ui.activity.OurTeamActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.android.superli.btremote.ui.activity.AboutUsActivity"
+            android:name="com.android.example.btremote.ui.activity.AboutUsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.tool.KeyboardActivity"
+            android:name="com.android.example.btremote.ui.activity.tool.KeyboardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.tool.MouseActivity"
+            android:name="com.android.example.btremote.ui.activity.tool.MouseActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.tool.PptActivity"
+            android:name="com.android.example.btremote.ui.activity.tool.PptActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.tool.ShoubingActivity"
+            android:name="com.android.example.btremote.ui.activity.tool.ShoubingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.tool.DiyActivity"
+            android:name="com.android.example.btremote.ui.activity.tool.DiyActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.SelectActivity"
+            android:name="com.android.example.btremote.ui.activity.SelectActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
